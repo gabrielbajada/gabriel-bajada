@@ -1,0 +1,68 @@
+/* $bg: 'bg';
+$card-bg: 'card-bg';
+$text: 'text';
+$text-secondary: 'text-secondary';
+$link: 'link';
+$hover: 'hover';
+$logo: 'logo';
+$brand-blue: 'brand-blue';
+$brand-red: 'brand-red';
+$border: 'border';
+
+$themes: (
+
+  light: (
+    //logo: url("../images/brand/logo_vertical.svg"),
+    background: $white,
+    card-bg: $lighter-gray,
+    text: $darker-gray,
+    text-secondary: $dark-gray,
+    link: $primary-color,
+    hover: $secondary-color,
+  ),
+
+  dark: (
+    //logo: url("../images/brand/logo_vertical--invert.svg"),
+      background: $darker-gray,
+      card-bg: $dark-gray,
+      text: $white,
+      text-secondary: $lighter-gray,
+      link: $primary-color,
+      hover: $secondary-color,
+  ),
+
+); */
+
+body {
+  --text-color: #222;
+  --bkg-color: #fff;
+}
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  //defaults to dark theme
+  body {
+    --text-color: #eee;
+    --bkg-color: #121212;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #fff;
+  }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+h1,
+p {
+  color: var(--text-color);
+}
