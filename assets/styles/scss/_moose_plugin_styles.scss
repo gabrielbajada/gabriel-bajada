@@ -61,12 +61,35 @@ CONTACT FORM 7 STYLES
 
   form {
 
+    fieldset {
+      margin-top: 0;
+      display: inline-block;
+      border: $border-thin solid;
+
+      @include themed() {
+        border-color: t($text-medium-emphasis);
+      }
+
+      legend {
+        font-family: $tertiary-font-family;
+        @include header-styles(h5);
+
+        @include themed() {
+          color: t($text-medium-emphasis);
+        }
+      }
+    }
+
     label {
-        color: $primary-color;
+        //color: $primary-color;
         //text-transform: uppercase;
-        font-family: $body-font-family;
+        font-family: $tertiary-font-family;
         font-weight: $global-weight-normal;
         font-size: 80%;
+
+        @include themed() {
+          color: t($text-medium-emphasis);
+        }
     }
 
     input[type="text"],
@@ -89,40 +112,41 @@ CONTACT FORM 7 STYLES
         //padding-left: 0;
         //padding-right: 0;
         height: 3.125rem;
-        font-family: $body-font-family;
-        font-weight: $global-weight-light;
+        font-family: $header-font-family;
+        font-weight: $global-weight-normal;
         //font-size: 1.188rem;
-        color: $primary-color;
         border: none;
         //border-bottom: $border-thin solid $black;
-        background-color: $primary-color-light;
 
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
         box-shadow: none;
         @include transition-2;
 
+        @include themed() {
+          color: t($text);
+          background-color: t($surface-1);
+        }
+
         &:focus {
             @include transition-1;
             //border-bottom: $border-thick solid $primary-color;
-            color: $primary-color;
-            background-color: $primary-color-light;
+
+            @include themed() {
+              color: t($text);
+              background-color: t($surface-2);
+            }
         }
 
-        &::-webkit-input-placeholder {
-            color: $black-translucent-light;
-        }
-
-        &::-moz-placeholder {  /* Firefox 19+ */
-            color: $black-translucent-light;
-        }
-
-        &:-moz-placeholder { /* Firefox 18- */
-            color: $black-translucent-light;
-        }
-
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder,
+        &::-moz-placeholder,
+        &:-moz-placeholder,
         &:-ms-input-placeholder {
-            color: $black-translucent-light;
+
+          @include themed() {
+            color: t($surface-2);
+          }
         }
     }
 
@@ -205,18 +229,24 @@ CONTACT FORM 7 STYLES
                     width: 100%;
                     display: block;
                     text-align: left;
-                    color: $secondary-color;
-                    background-color: scale-color($secondary-color, $lightness: 95%);
                     cursor: pointer;
                     position: relative;
                     z-index: 2;
                     overflow: hidden;
                     @include transition-2;
 
+                    @include themed() {
+                      color: t($bg);
+                      background-color: t($text-medium-emphasis);
+                    }
+
                     &:hover, &:active {
-                        color: $white;
-                        background-color: $primary-color;
-                        @include transition-1;
+                      @include transition-1;
+
+                      @include themed() {
+                        color: t($bg);
+                        background-color: t($primary-clr);
+                      }
                     }
 
                     &:before {
@@ -261,10 +291,14 @@ CONTACT FORM 7 STYLES
     }
 
     .fineprint {
-        color: $black;
         text-transform: none;
+        font-family: $tertiary-font-family;
         font-weight: $global-weight-normal;
         @include header-styles(h6);
+
+        @include themed() {
+          color: t($text);
+        }
     }
 
     .mc4wp-checkbox-contact-form-7 {
@@ -282,12 +316,15 @@ CONTACT FORM 7 STYLES
                 padding-left: 32px;
                 margin: 0;
                 margin-bottom: rem-calc(map-get($grid-column-gutter, small) / 2 );
-                color: $black;
                 font-weight: $global-weight-normal;
                 text-transform: initial;
                 position: relative;
                 display: inline-block;
                 @include header-styles(h5);
+
+                @include themed() {
+                  color: t($text);
+                }
 
                 &::before, &::after {
                     position: absolute;
@@ -301,8 +338,7 @@ CONTACT FORM 7 STYLES
                     height: 19px;
                     width: 19px;
 
-                    border: $border-medium solid $secondary-color-light;
-                    background-color: $primary-color-light;
+                    border: $border-medium solid;
                     left: 0px;
 
                     /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
@@ -310,19 +346,28 @@ CONTACT FORM 7 STYLES
                      */
                     top: 4px;
                     @include transition-2;
+
+                    @include themed() {
+                      background-color: t($surface-2);
+                      border-color: t($surface-2);
+                    }
                 }
 
                 &::after {
                     height: 7px;
                     width: 11px;
-                    border-left: $border-medium solid $white;
-                    border-bottom: $border-medium solid $white;
+                    border-left: $border-medium solid;
+                    border-bottom: $border-medium solid;
 
                     transform: rotate(-45deg);
 
                     left: 4px;
                     top: 9px;
                     @include transition-2;
+
+                    @include themed() {
+                      border-color: t($surface-2);
+                    }
                 }
             }
 

@@ -33,6 +33,21 @@
 
 
 /*********************
+BALANCE TEXT STYLES
+*********************/
+
+@mixin balance-text {
+  text-wrap: balance;   /* Apply (proposed) CSS style */
+}
+
+.balance-text {
+    @include balance-text;
+}
+
+
+
+
+/*********************
 02 – MAINTAIN ASPECT RATIO
 *********************/
 

@@ -14,34 +14,15 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;600&display=swap');
+@import url("https://use.typekit.net/wjn5prn.css");
 
-$login-primary-color: #5B7671;
-$login-secondary-color: #735C67;
+$login-primary-color: #fefefe;
+$login-secondary-color: #f25f24;
 $login-text-color: scale-color($login-primary-color, $lightness: -30%);
-$login-background-color: #F1EFEF;
-$header-font-family: 'Montserrat', sans-serif;
-$body-font-family: 'Lato', sans-serif;
+$login-background-color: #121212;
+$header-font-family: 'obviously', sans-serif;
+$body-font-family: 'obviously-narrow', sans-serif;
 $border-radius: 0; //5px;
-
-
-
-
-/* Change Autocomplete styles in Chrome*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: 1px solid $login-primary-color;
-  -webkit-text-fill-color: $login-primary-color;
-  -webkit-box-shadow: 0 0 0px 1000px $login-background-color inset;
-  transition: background-color 250ms ease-in-out 0s;
-}
 
 
 
@@ -58,7 +39,7 @@ body.login {
         h1 {
 
             a {
-                background: url(../images/logo-ludus-park.png) no-repeat top center;
+                background: url(../images/gabriel-bajada-logo-white.png) no-repeat top center;
                 background-size: contain;
                 width: 220px;
                 height: 50px;
@@ -78,16 +59,37 @@ body.login {
             border: none !important;
             //box-shadow: none !important;
 
+            /* Change Autocomplete styles in Chrome*/
+            input:-webkit-autofill::first-line,
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus {
+              //border: 1px solid $login-primary-color;
+              -webkit-box-shadow: 0 0 0px 1000px scale-color($login-text-color, $lightness: 85%) inset !important;
+              transition: background-color 5000s ease-in-out 0s;
+              -webkit-text-fill-color: $login-background-color !important;
+            }
+
             .input, input[type=checkbox], input[type=text] {
               border: 0;
+              border-radius: 0;
               outline: none !important;
               box-shadow: none;
-              color: $login-text-color !important;
-              background-color: $login-background-color !important;
+              color: $login-background-color !important;
+              background-color: scale-color($login-text-color, $lightness: 85%) !important;
+              transition: background-color 0.5s ease-in-out 0.25s;
 
               &:focus {
-                border-color: $login-secondary-color !important;
-                box-shadow: 0 0 0 1px $login-secondary-color !important;
+                background-color: scale-color($login-text-color, $lightness: 85%) !important;
+                border-color: scale-color($login-text-color, $lightness: 85%) !important;
+                box-shadow: 0 0 0 1px scale-color($login-text-color, $lightness: 85%) !important;
+                transition: background-color 0.5s ease-in-out 0s;
               }
             }
 
@@ -96,6 +98,7 @@ body.login {
               // TO CALCULATE FILTER COLOUR BASED OFF SECONDARY COLOR -> https://codepen.io/sosuke/pen/Pjoqqp
               // Brightness and Saturate have been added to change the icon to black so that the filter will work.
               filter: brightness(0) saturate(100%) invert(25%) sepia(38%) saturate(872%) hue-rotate(219deg) brightness(86%) contrast(85%);
+              border-radius: 0;
             }
 
             .button.wp-hide-pw {
@@ -104,18 +107,18 @@ body.login {
                 outline: none;
 
                 .dashicons {
-                    color: $login-secondary-color !important;
+                    color: $login-background-color !important;
                 }
             }
 
             // Login Button Style
             #wp-submit {
-                background: $login-primary-color !important;
+                background: $login-text-color !important;
                 border: 0;
 		            border-radius: $border-radius;
                 -webkit-box-shadow: none;
                 box-shadow: none;
-                color: white;
+                color: $login-background-color;
 								font-family: $header-font-family;
                 font-weight: bold;
                 text-decoration: none;
@@ -127,7 +130,7 @@ body.login {
                 transition: all 0.3s ease;
 
                 &:hover {
-                    background-color: $login-text-color !important;
+                    background-color: $login-secondary-color !important;
                     -webkit-transition: all 0.3s ease;
                     transition: all 0.3s ease;
                 }
@@ -142,7 +145,7 @@ body.login {
             transition: all 0.3s ease;
 
             &:hover {
-                color: $login-primary-color !important;
+                color: $login-secondary-color !important;
 								text-decoration: none;
                 -webkit-transition: all 0.3s ease;
                 transition: all 0.3s ease;
