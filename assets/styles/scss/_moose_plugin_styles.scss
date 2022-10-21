@@ -1,0 +1,763 @@
+/******************************************
+PLUGIN STYLES OVERRIDE
+******************************************/
+
+
+
+
+/*********************
+GDPR COOKIE CONSENT STYLES
+*********************/
+
+#cookie-law-info-bar {
+    padding: 1.5rem 0.5rem;
+    min-height: 6rem;
+    border: none;
+    border-top: $border-thick solid $primary-color;
+    box-shadow: none;
+    z-index: 11111111111;
+    @include header-styles(h5);
+
+    .cli-plugin-button {
+        text-transform: uppercase;
+        font-weight: $global-weight-bold !important;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        @include transition-2;
+
+        &:hover {
+            color: $white !important;
+            background-color: $secondary-color !important;
+            @include transition-1;
+        }
+    }
+}
+
+#cliSettingsPopup {
+    font-family: $body-font-family;
+
+    .cli-btn, .cli-slider {
+      background-color: $success-color;
+    }
+
+    .cli-btn {
+      font-weight: $global-weight-bold !important;
+    }
+}
+
+
+
+
+/*********************
+CONTACT FORM 7 STYLES
+*********************/
+
+.grecaptcha-badge {
+    visibility: collapse !important;
+}
+
+.wpcf7 {
+
+  form {
+
+    label {
+        color: $primary-color;
+        //text-transform: uppercase;
+        font-family: $body-font-family;
+        font-weight: $global-weight-normal;
+        font-size: 80%;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="color"],
+    select,
+    textarea {
+        // padding: 1.15rem !important;
+        //padding-left: 0;
+        //padding-right: 0;
+        height: 3.125rem;
+        font-family: $body-font-family;
+        font-weight: $global-weight-light;
+        //font-size: 1.188rem;
+        color: $primary-color;
+        border: none;
+        //border-bottom: $border-thin solid $black;
+        background-color: $primary-color-light;
+
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        @include transition-2;
+
+        &:focus {
+            @include transition-1;
+            //border-bottom: $border-thick solid $primary-color;
+            color: $primary-color;
+            background-color: $primary-color-light;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $black-translucent-light;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            color: $black-translucent-light;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            color: $black-translucent-light;
+        }
+
+        &:-ms-input-placeholder {
+            color: $black-translucent-light;
+        }
+    }
+
+    .wpt-form-set-checkboxes, .wpt-form-item-checkbox {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .wpt-form-item-checkbox {
+        padding-left: 0 !important;
+        margin-right: 2rem;
+        display: inline-block;
+        color: $dark-gray;
+
+        span {
+            color: $medium-gray;
+        }
+
+        label {
+            color: $white;
+            text-transform: inherit;
+            font-weight: $global-weight-normal;
+            @include header-styles(h4);
+        }
+    }
+
+    // CUSTOM CHECKBOX STYLING
+    .project-type {
+        //background-color: #fff;
+        display: block;
+        //margin: 10px 0;
+        position: relative;
+        @include xy-grid-container;
+        @include xy-gutters($negative: true);
+
+        .wpcf7-checkbox {
+            @include xy-grid;
+            //@extend .grid-margin-x;
+
+            .wpcf7-list-item {
+                //width: 25%;
+                margin: 0;
+                //margin-right: rem-calc(map-get($grid-column-gutter, small)) / 2 !important;
+                margin-bottom: rem-calc(map-get($grid-column-gutter, small)) !important;
+                //margin-left: rem-calc(map-get($grid-column-gutter, small)) / 2 !important;
+                //@include xy-cell(full, false);
+                width: 100%;
+
+                @include breakpoint(medium) {
+                    margin-right: rem-calc(map-get($grid-column-gutter, medium)) / 2;
+                    margin-bottom: 0;
+                    margin-left: rem-calc(map-get($grid-column-gutter, medium)) / 2;
+                    @include xy-cell(auto, true);
+                }
+
+                @include breakpoint(xlarge) {
+                    margin-right: rem-calc(map-get($grid-column-gutter, xxlarge)) / 2;
+                    margin-left: rem-calc(map-get($grid-column-gutter, xlarge)) / 2;
+                }
+
+                @include breakpoint(xxlarge) {
+                    margin-right: rem-calc(map-get($grid-column-gutter, xxlarge)) / 2;
+                    margin-left: rem-calc(map-get($grid-column-gutter, xxlarge)) / 2;
+                }
+
+                &.first {
+                    @include breakpoint(medium) {
+                        margin-left: 0;
+                    }
+                }
+
+                &.last {
+                    @include breakpoint(medium) {
+                        margin-right: 0;
+                    }
+                }
+
+                .wpcf7-list-item-label {
+                    padding: 12px 30px;
+                    width: 100%;
+                    display: block;
+                    text-align: left;
+                    color: $secondary-color;
+                    background-color: scale-color($secondary-color, $lightness: 95%);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 2;
+                    overflow: hidden;
+                    @include transition-2;
+
+                    &:hover, &:active {
+                        color: $white;
+                        background-color: $primary-color;
+                        @include transition-1;
+                    }
+
+                    &:before {
+                        width: 100%;
+                        height: 100%;
+                        content: '';
+                        background-color: $secondary-color;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        opacity: 0;
+                        z-index: -1;
+                        @include transition-1;
+                    }
+                }
+
+                input:checked ~ .wpcf7-list-item-label {
+                    color: #fff;
+
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+
+                input {
+                    width: 32px;
+                    height: 32px;
+                    order: 1;
+                    z-index: 2;
+                    position: absolute;
+                    //right: 30px;
+                    top: 50%;
+                    cursor: pointer;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    textarea {
+        height: 12.5rem !important;
+    }
+
+    .fineprint {
+        color: $black;
+        text-transform: none;
+        font-weight: $global-weight-normal;
+        @include header-styles(h6);
+    }
+
+    .mc4wp-checkbox-contact-form-7 {
+
+        label {
+            cursor: pointer;
+
+            input[type="checkbox"] {
+                //opacity: 0;
+                display: none;
+            }
+
+            span {
+                /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+                padding-left: 32px;
+                margin: 0;
+                margin-bottom: rem-calc(map-get($grid-column-gutter, small) / 2 );
+                color: $black;
+                font-weight: $global-weight-normal;
+                text-transform: initial;
+                position: relative;
+                display: inline-block;
+                @include header-styles(h5);
+
+                &::before, &::after {
+                    position: absolute;
+                    content: "";
+
+                    /*Needed for the line-height to take effect*/
+                    display: inline-block;
+                }
+
+                &::before {
+                    height: 19px;
+                    width: 19px;
+
+                    border: $border-medium solid $secondary-color-light;
+                    background-color: $primary-color-light;
+                    left: 0px;
+
+                    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+                     *to vertically center it.
+                     */
+                    top: 4px;
+                    @include transition-2;
+                }
+
+                &::after {
+                    height: 7px;
+                    width: 11px;
+                    border-left: $border-medium solid $white;
+                    border-bottom: $border-medium solid $white;
+
+                    transform: rotate(-45deg);
+
+                    left: 4px;
+                    top: 9px;
+                    @include transition-2;
+                }
+            }
+
+            /*Hide the checkmark by default*/
+            input[type="checkbox"] + span::after {
+                content: none;
+                @include transition-2;
+            }
+
+            /*Unhide on the checked state*/
+            input[type="checkbox"]:checked + span::after {
+                content: "";
+                @include transition-2;
+            }
+
+            input[type="checkbox"]:checked + span::before {
+                border-color: $primary-color;
+                background-color: $primary-color;
+                @include transition-1;
+            }
+
+            /*Adding focus styles on the outer-box of the fake checkbox*/
+            input[type="checkbox"]:focus + span::before {
+                outline: rgb(59, 153, 252) auto 5px;
+                @include transition-1;
+            }
+        }
+    }
+
+    .button {
+
+        &:after {
+          content: "\e163"; //send
+        }
+    }
+
+
+    // VALIDATION STYLES
+
+    .wpcf7-response-output {
+        margin: 2em 0.5em 1em;
+        padding: 0.2em 1em;
+        border: 2px solid #00a0d2; /* Blue */
+    }
+
+    &.init .wpcf7-response-output {
+        display: none;
+    }
+
+    &.sent .wpcf7-response-output {
+        margin: 0;
+        padding: 1.25rem;
+        color: $white;
+        font-family: $body-font-family;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: $global-weight-bold;
+        line-height: 150%;
+        background-color: $success-color; /* Green */
+        border: none;
+    }
+
+    &.failed .wpcf7-response-output,
+    &.aborted .wpcf7-response-output {
+        border-color: #dc3232; /* Red */
+    }
+
+    &.spam .wpcf7-response-output {
+        border-color: #f56e28; /* Orange */
+    }
+
+    &.invalid .wpcf7-response-output,
+    &.unaccepted .wpcf7-response-output {
+        margin: 0;
+        padding: 1.25rem;
+        color: $white;
+        font-family: $body-font-family;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: $global-weight-bold;
+        line-height: 150%;
+        background-color: $warning-color;
+        border: none;
+    }
+
+    span.wpcf7-not-valid-tip {
+        margin: -1rem 0 1.5rem 0; // -1.25rem 0 1.5rem 0;
+        padding: 0.25rem 0.5rem;
+        text-transform: uppercase;
+        font-family: $body-font-family;
+        font-weight: $global-weight-bold;
+        font-size: 0.8rem;
+        color: $white;
+        background-color: $alert-color;
+    }
+  }
+}
+
+
+
+
+/*********************
+INFINITE SCROLL STYLES
+*********************/
+
+.page-load-status {
+
+  .infinite-scroll-request, .infinite-scroll-last, .infinite-scroll-error {
+    margin-bottom: 0;
+    font-family: $body-font-family;
+
+    @include themed() {
+      color: t($text);
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+      top: 0.275rem;
+      border: none;
+      line-height: 0.25rem;
+    }
+  }
+
+  .infinite-scroll-request {
+    transform: scale(-1, 1);
+    @include inner-spaced;
+
+    &:after {
+      display: block;
+      font-size: 3rem;
+      text-align: center;
+      font-family: "Material Symbols Sharp";
+      content: "\e627"; //sync
+      -webkit-animation:spin 1s reverse linear infinite;
+      -moz-animation:spin 1s reverse linear infinite;
+      animation:spin 1s reverse linear infinite;
+
+      @include themed() {
+        color: t($text);
+      }
+    }
+
+    @include breakpoint(retina) {
+    	//background-image: url(../images/preloader@2x.gif);
+      background-size: 100px;
+    }
+
+    @include themed() {
+      background-color: t($bg);
+    }
+  }
+
+  .infinite-scroll-last {}
+
+  .infinite-scroll-error {}
+}
+
+
+
+
+/*********************
+BALANCE TEXT STYLES
+*********************/
+
+@mixin balance-text {
+  text-wrap: balance;   /* Apply (proposed) CSS style */
+}
+
+.balance-text {
+  @include balance-text;
+}
+
+
+
+
+/*********************
+OWL CAROUSEL STYLES
+*********************/
+
+.owl-theme {
+    z-index: 0 !important;
+
+    .owl-controls {
+        margin-top: -3rem;
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+
+        ///// APPEAR ON LOAD
+        opacity: 0;
+        @include transition-4;
+
+        &.visible {
+            opacity: 1;
+            @include transition-5;
+        }
+        ///// END APPEAR ON LOAD
+
+        @include breakpoint(medium) {
+            //margin-top: -8em; //10px;
+        }
+
+        .owl-nav [class*=owl-]{
+            color: $white;
+            font-size:14px;
+            margin: 5px;
+            padding: 4px 7px;
+            background: $lighter-gray;
+            display:inline-block;
+            cursor:pointer;
+            -webkit-border-radius:3px;
+            -moz-border-radius:3px;
+            border-radius:3px;
+
+            &:hover {
+                background: $medium-gray;
+                color:#fff;
+                text-decoration:none
+            }
+        }
+
+        .owl-nav .disabled {
+            opacity:.5;
+            cursor:default
+        }
+    }
+
+    .owl-dots .owl-dot {
+        display:inline-block;
+        zoom:1;
+        *display:inline;
+
+        span {
+            @include transition-2;
+            width: 12px;
+            height: 12px;
+            margin: 5px 7px;
+            display: block;
+
+            background: $white;
+            border: $border-medium solid transparent;
+
+            -webkit-backface-visibility: visible;
+
+            -webkit-transition:opacity 200ms ease;
+            -moz-transition:opacity 200ms ease;
+            -ms-transition:opacity 200ms ease;
+            -o-transition:opacity 200ms ease;
+            transition:opacity 200ms ease;
+
+            -webkit-border-radius:30px;
+            -moz-border-radius:30px;
+            border-radius:30px;
+        }
+    }
+
+    .owl-dots .owl-dot.active span, .owl-dots .owl-dot:hover span {
+        @include transition-1;
+        background: $white;
+        //border: $border-medium solid $primary-color;
+    }
+
+    .owl-dots .owl-dot:hover span {
+        border-color: $white !important;
+        background: $primary-color !important;
+    }
+}
+
+
+
+
+/*********************
+RESPONSIVE LIGHTBOX & GALLERY STYLES
+*********************/
+
+.rl-basicgrid-gallery, .rl-basicmasonry-gallery {
+  z-index: 0 !important;
+
+  .rl-gallery-item {
+    background: $primary-color !important;
+
+    img {
+      @include transition-2;
+      opacity: 1;
+
+      &:hover, &:active {
+        @include transition-1;
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.rl-basicgrid-gallery, .rl-basicmasonry-gallery {
+
+  .rl-gallery-item, .rl-gallery-item img {
+    height: 8rem !important;
+
+    @include breakpoint(medium) {
+      height: 14rem !important;
+    }
+
+    @include breakpoint(large) {
+      height: 18rem !important;
+    }
+
+    @include breakpoint(xlarge) {
+      height: 21rem !important;
+    }
+
+    @include breakpoint(xxlarge) {
+      height: 30rem !important;
+    }
+  }
+
+}
+
+#swipebox-html {
+  @include transition-1;
+}
+
+#swipebox-overlay {
+  z-index: 9999999999 !important;
+  background: $primary-color-dark-translucent-dark;
+  @include transition-1;
+
+  #swipebox-container {
+
+    #swipebox-slider {
+
+      .slide {
+        padding-top: 4rem;
+        padding-bottom: 50px;
+
+        img {
+          max-height: 95%;
+          max-width: 95%;
+        }
+      }
+    }
+
+    #swipebox-top-bar {
+      background: transparent; //$primary-color;
+      display: block !important;
+      height: 4rem;
+    }
+
+    #swipebox-bottom-bar {
+      background: transparent; //$primary-color;
+
+      #swipebox-arrows {
+
+        #swipebox-next, #swipebox-prev {
+          background-image: none !important;
+
+          &:before {
+            padding: 0 8px;
+            position: absolute;
+            top: 0.5rem;
+            color: $white;
+            text-shadow: none;
+            font-family: "Material Symbols Sharp";
+            font-size: 24px;
+            @include transition-2;
+          }
+
+          &:hover, &:active {
+
+            &:before {
+              color: $secondary-color;
+              @include transition-1;
+            }
+          }
+        }
+
+        #swipebox-next {
+
+          &:before {
+            content: "\e5e1";
+            right: 0.25rem;
+
+            @include breakpoint(medium) {
+              right: initial;
+            }
+          }
+        }
+
+        #swipebox-prev {
+
+          &:before {
+            content: "\e2ea";
+          }
+        }
+
+      }
+    }
+  }
+
+  #swipebox-close {
+    background-image: none !important;
+    padding: 0 1.25rem;
+    height: 4rem;
+    width: 4rem;
+    right: 0;
+
+    @include breakpoint(medium) {
+      padding: 0 1.5rem;
+      right: 1rem;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      color: $white;
+      text-shadow: none;
+      font-family: "Material Symbols Sharp";
+      content: "\e5cd";
+      font-size: 24px;
+      @include transition-2;
+
+      @include breakpoint(medium) {
+        right: 0;
+      }
+    }
+
+    &:hover, &:active {
+
+      &:before {
+        color: $secondary-color;
+        @include transition-1;
+      }
+    }
+  }
+}

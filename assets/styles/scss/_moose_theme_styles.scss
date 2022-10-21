@@ -1,0 +1,89 @@
+$bg: 'bg';
+$surface-1: 'surface-1';
+$surface-2: 'surface-2';
+$surface-3: 'surface-3';
+$primary-clr: 'primary-clr';
+$secondary-clr: 'secondary-clr';
+$text-font-weight: 'text-font-weight';
+$text: 'text';
+$text-medium-emphasis: 'text-medium-emphasis';
+$text-secondary: 'text-secondary';
+$link: 'link';
+$hover: 'hover';
+$btn-hover-text: 'btn-hover-text';
+$logo: 'logo';
+$moose-logo: 'moose-logo';
+$image-opacity: 'image-opacity';
+$offcanvas-overlay: 'offcanvas-overlay';
+
+$themes: (
+
+  default: (
+    logo: url("../images/gabriel-bajada-logo.png"),
+    moose-logo: url("https://gabrielbajada-host1.com/host/credits/moose-mark-black.png"),
+    bg: scale-color($white, $lightness: -11%),
+    surface-1: scale-color($white, $lightness: -8%),
+    surface-2: scale-color($white, $lightness: -5%),
+    surface-3: $white,
+    primary-clr: $primary-color,
+    secondary-clr: scale-color($primary-color, $lightness: -20%),
+    card-bg: $lighter-gray,
+    text-font-weight: 500,
+    text: $black,
+    text-medium-emphasis: scale-color($black, $lightness: 60%),
+    //text-secondary: $text--2--light,
+    //link: $brand--blue--light,
+    hover: $primary-color, //scale-color($black, $lightness: 20%),
+    btn-hover-text: $black,
+    image-opacity: 1,
+    offcanvas-overlay: rgba(228, 228, 228, 0.95),
+    //border: $border--light
+  ),
+
+  dark: (
+    logo: url("../images/gabriel-bajada-logo-white.png"),
+    moose-logo: url("https://gabrielbajada-host1.com/host/credits/moose-mark-white.png"),
+    bg: $black, //linear-gradient($bg--dark--top, $bg--dark--bottom),
+    surface-1: scale-color($black, $lightness: 5%),
+    surface-2: scale-color($black, $lightness: 7%),
+    surface-3: scale-color($black, $lightness: 8%),
+    primary-clr: $secondary-color,
+    secondary-clr: scale-color($secondary-color, $lightness: -20%),
+    card-bg: $darker-gray,
+    text-font-weight: 600,
+    text: $white,
+    text-medium-emphasis: scale-color($white, $lightness: -60%),
+    //text-secondary: $text--2--dark,
+    //link: $brand--blue--dark,
+    hover: $secondary-color, //scale-color($white, $lightness: -20%),
+    btn-hover-text: $black,
+    image-opacity: 0.85,
+    offcanvas-overlay: rgba(18, 18, 18, 0.95),
+  ),
+
+);
+
+
+
+
+/*********************
+THEMES MIXIN – https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995
+*********************/
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

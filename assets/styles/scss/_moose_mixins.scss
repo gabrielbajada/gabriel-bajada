@@ -1,0 +1,1049 @@
+// 01 – HEADER FONT SIZES
+// 02 – MAINTAIN ASPECT RATIO
+// 03 – SPACING STYLES
+// 04 – TRANSITIONS
+// 05 – APPEAR ON LOAD STYLES
+// 06 – APPEAR ON SCROLL STYLES
+// 07 – VIEWPORT HEIGHT STYLES
+// 08 – BOX SHADOW
+
+
+
+/*********************
+01 – HEADER FONT SIZES
+*********************/
+
+// This calls a particular header size e.g. h2. To call in _main.scss use: font-size: header-size(medium, h2);
+
+@function header-size($breakpoint, $size) {
+  @return rem-calc(map-get(map-get(map-get($header-styles, "small"), $size), "font-size") * 1px);
+}
+
+
+// This calls the responsive header size. To call in _main.scss use: @include header-styles(h4);
+
+@mixin header-styles($type){
+  font-size: rem-calc(map-get(map-get(map-get($header-styles, "small"), $type), "font-size") * 1px);
+  @include breakpoint(xlarge){
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, "xlarge"), $type), "font-size") * 1px);
+  }
+}
+
+
+
+
+/*********************
+02 – MAINTAIN ASPECT RATIO
+*********************/
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%  !important;
+  }
+  > .aspect-ratio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.square {
+    @include aspect-ratio(1, 1);
+}
+
+.three-one {
+    @include aspect-ratio(3, 1);
+}
+
+.four-three {
+    @include aspect-ratio(4, 3);
+}
+
+.sixteen-nine {
+    @include aspect-ratio(16, 9);
+}
+
+
+
+
+/*********************
+03 – TRANSITIONS
+*********************/
+
+
+///// TRANSITION ALL
+
+@mixin transition-1 {
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+
+.transition-1 {
+    @include transition-1;
+}
+
+@mixin transition-2 {
+    -webkit-transition: all 250ms ease 300ms;
+    -moz-transition: all 250ms ease 300ms;
+    -o-transition: all 250ms ease 300ms;
+    transition: all 250ms ease 300ms;
+}
+
+.transition-2 {
+    @include transition-2;
+}
+
+@mixin transition-3 {
+    -webkit-transition: all 250ms ease 600ms;
+    -moz-transition: all 250ms ease 600ms;
+    -o-transition: all 250ms ease 600ms;
+    transition: all 250ms ease 600ms;
+}
+
+.transition-3 {
+    @include transition-3;
+}
+
+@mixin transition-4 {
+    -webkit-transition: all 250ms ease 900ms;
+    -moz-transition: all 250ms ease 900ms;
+    -o-transition: all 250ms ease 900ms;
+    transition: all 250ms ease 900ms;
+}
+
+.transition-4 {
+    @include transition-4;
+}
+
+@mixin transition-5 {
+    -webkit-transition: all 250ms ease 1200ms;
+    -moz-transition: all 250ms ease 1200ms;
+    -o-transition: all 250ms ease 1200ms;
+    transition: all 250ms ease 1200ms;
+}
+
+.transition-5 {
+    @include transition-5;
+}
+
+@mixin transition-6 {
+    -webkit-transition: all 250ms ease 1500ms;
+    -moz-transition: all 250ms ease 1500ms;
+    -o-transition: all 250ms ease 1500ms;
+    transition: all 250ms ease 1500ms;
+}
+
+.transition-6 {
+    @include transition-6;
+}
+
+
+
+
+/*********************
+04 – APPEAR ON LOAD EFFECT STYLES
+*********************/
+
+@mixin appear-load-1 {
+    opacity: 0;
+    @include transition-2;
+
+    &.visible {
+        opacity: 1;
+        @include transition-3;
+    }
+}
+
+.appear-load-1 {
+    @include appear-load-1;
+}
+
+
+@mixin appear-load-2 {
+    opacity: 0;
+    @include transition-3;
+
+    &.visible {
+        opacity: 1;
+        @include transition-4;
+    }
+}
+
+.appear-load-2 {
+    @include appear-load-2;
+}
+
+@mixin appear-load-3 {
+    opacity: 0;
+    @include transition-4;
+
+    &.visible {
+        opacity: 1;
+        @include transition-5;
+    }
+}
+
+.appear-load-3 {
+    @include appear-load-3;
+}
+
+@mixin appear-load-4 {
+    opacity: 0;
+    @include transition-5;
+
+    &.visible {
+        opacity: 1;
+        @include transition-6;
+    }
+}
+
+.appear-load-4 {
+    @include appear-load-4;
+}
+
+
+
+
+
+/*********************
+05 – APPEAR ON SCROLL EFFECT STYLES
+*********************/
+
+@mixin appear-scroll-1 {
+    opacity: 0;
+    @include transition-2;
+
+    &.visible {
+        opacity: 1;
+        @include transition-3;
+    }
+}
+
+.appear-scroll-1 {
+    @include appear-scroll-1;
+}
+
+@mixin appear-scroll-2 {
+    opacity: 0;
+    @include transition-3;
+
+    &.visible {
+        opacity: 1;
+        @include transition-4;
+    }
+}
+
+.appear-scroll-2 {
+    @include appear-scroll-2;
+}
+
+@mixin appear-scroll-3 {
+    opacity: 0;
+    @include transition-4;
+
+    &.visible {
+        opacity: 1;
+        @include transition-5;
+    }
+}
+
+.appear-scroll-3 {
+    @include appear-scroll-3;
+}
+
+
+
+
+/*********************
+06 – SPACING STYLES
+*********************/
+
+// Spacing
+
+@mixin spaced {
+    margin-top: 8vh;
+    margin-bottom: 9.2vh;
+}
+
+@mixin spaced-top {
+    margin-top: 8vh;
+}
+
+@mixin spaced-bottom {
+    margin-bottom: 9.2vh;
+}
+
+.spaced {
+    @include spaced;
+}
+
+.spaced-top {
+    @include spaced-top;
+}
+
+.spaced-bottom {
+    @include spaced-bottom;
+}
+
+// Fifth Spacing
+
+@mixin fifth-spaced {
+    margin-top: 1.6vh;
+    margin-bottom: 1.84vh;
+}
+
+@mixin fifth-spaced-top {
+    margin-top: 1.6vh;
+}
+
+@mixin fifth-spaced-bottom {
+    margin-bottom: 1.84vh;
+}
+
+.fifth-spaced {
+    @include fifth-spaced;
+}
+
+.fifth-spaced-top {
+    @include fifth-spaced-top;
+}
+
+.fifth-spaced-bottom {
+    @include fifth-spaced-bottom;
+}
+
+// Quarter Spacing
+
+@mixin quarter-spaced {
+    margin-top: 2vh;
+    margin-bottom: 2.3vh;
+}
+
+@mixin quarter-spaced-top {
+    margin-top: 2vh;
+}
+
+@mixin quarter-spaced-bottom {
+    margin-bottom: 2.3vh;
+}
+
+.quarter-spaced {
+    @include quarter-spaced;
+}
+
+.quarter-spaced-top {
+    @include quarter-spaced-top;
+}
+
+.quarter-spaced-bottom {
+    @include quarter-spaced-bottom;
+}
+
+// One Third Spacing
+
+@mixin third-spaced {
+    margin-top: 2.66vh;
+    margin-bottom: 3.06vh;
+}
+
+@mixin third-spaced-top {
+    margin-top: 2.66vh;
+}
+
+@mixin third-spaced-bottom {
+    margin-bottom: 3.06vh;
+}
+
+.third-spaced {
+    @include third-spaced;
+}
+
+.third-spaced-top {
+    @include third-spaced-top;
+}
+
+.third-spaced-bottom {
+    @include third-spaced-bottom;
+}
+
+// Two Fifth Spacing
+
+@mixin two-fifth-spaced {
+    margin-top: 3.2vh;
+    margin-bottom: 3.68vh;
+}
+
+@mixin two-fifth-spaced-top {
+    margin-top: 3.2vh;
+}
+
+@mixin two-fifth-spaced-bottom {
+    margin-bottom: 3.68vh;
+}
+
+.two-fifth-spaced {
+    @include two-fifth-spaced;
+}
+
+.two-fifth-spaced-top {
+    @include two-fifth-spaced-top;
+}
+
+.two-fifth-spaced-bottom {
+    @include two-fifth-spaced-bottom;
+}
+
+// Half Spacing
+
+@mixin half-spaced {
+    margin-top: 4vh;
+    margin-bottom: 4.6vh;
+}
+
+@mixin half-spaced-top {
+    margin-top: 4vh;
+}
+
+@mixin half-spaced-bottom {
+    margin-bottom: 4.6vh;
+}
+
+.half-spaced {
+    @include half-spaced;
+}
+
+.half-spaced-top {
+    @include half-spaced-top;
+}
+
+.half-spaced-bottom {
+    @include half-spaced-bottom;
+}
+
+// Three Fifth Spacing
+
+@mixin three-fifth-spaced {
+    margin-top: 4.8vh;
+    margin-bottom: 5.52vh;
+}
+
+@mixin three-fifth-spaced-top {
+    margin-top: 4.8vh;
+}
+
+@mixin three-fifth-spaced-bottom {
+    margin-bottom: 5.52;
+}
+
+.three-fifth-spaced {
+    @include three-fifth-spaced;
+}
+
+.three-fifth-spaced-top {
+    @include three-fifth-spaced-top;
+}
+
+.three-fifth-spaced-bottom {
+    @include three-fifth-spaced-bottom;
+}
+
+// Two Third Spacing
+
+@mixin two-third-spaced {
+    margin-top: 5.32vh;
+    margin-bottom: 6.13vh;
+}
+
+@mixin two-third-spaced-top {
+    margin-top: 5.32vh;
+}
+
+@mixin two-third-spaced-bottom {
+    margin-bottom: 6.13vh;
+}
+
+.two-third-spaced {
+    @include two-third-spaced;
+}
+
+.two-third-spaced-top {
+    @include two-third-spaced-top;
+}
+
+.two-third-spaced-bottom {
+    @include two-third-spaced-bottom;
+}
+
+// Three Quarter Spacing
+
+@mixin three-quarter-spaced {
+    margin-top: 6vh;
+    margin-bottom: 6.9vh;
+}
+
+@mixin three-quarter-spaced-top {
+    margin-top: 6vh;
+}
+
+@mixin three-quarter-spaced-bottom {
+    margin-bottom: 6.9vh;
+}
+
+.three-quarter-spaced {
+    @include three-quarter-spaced;
+}
+
+.three-quarter-spaced-top {
+    @include three-quarter-spaced-top;
+}
+
+.three-quarter-spaced-bottom {
+    @include three-quarter-spaced-bottom;
+}
+
+// Four Fifth Spacing
+
+@mixin four-fifth-spaced {
+    margin-top: 6.4vh;
+    margin-bottom: 7.36vh;
+}
+
+@mixin four-fifth-spaced-top {
+    margin-top: 6.4vh;
+}
+
+@mixin four-fifth-spaced-bottom {
+    margin-bottom: 7.36vh;
+}
+
+.four-fifth-spaced {
+    @include four-fifth-spaced;
+}
+
+.four-fifth-spaced-top {
+    @include four-fifth-spaced-top;
+}
+
+.four-fifth-spaced-bottom {
+    @include four-fifth-spaced-bottom;
+}
+
+// Double Spacing
+
+@mixin double-spaced {
+    margin-top: 16vh;
+    margin-bottom: 18.4vh;
+}
+
+@mixin double-spaced-top {
+    margin-top: 16vh;
+}
+
+@mixin double-spaced-bottom {
+    margin-bottom: 18.4vh;
+}
+
+.double-spaced {
+    @include double-spaced;
+}
+
+.double-spaced-top {
+    @include double-spaced-top;
+}
+
+.double-spaced-bottom {
+    @include double-spaced-bottom;
+}
+
+// Inner Spacing
+
+@mixin inner-spaced {
+    padding-top: 8vh;
+    padding-bottom: 9.2vh;
+}
+
+@mixin inner-spaced-top {
+    padding-top: 8vh;
+}
+
+@mixin inner-spaced-bottom {
+    padding-bottom: 9.2vh;
+}
+
+.inner-spaced {
+    @include inner-spaced;
+}
+
+.inner-spaced-top {
+    @include inner-spaced-top;
+}
+
+.inner-spaced-bottom {
+    @include inner-spaced-bottom;
+}
+
+// Fifth Inner Spacing
+
+@mixin fifth-inner-spaced {
+    padding-top: 1.6vh;
+    padding-bottom: 1.84vh;
+}
+
+@mixin fifth-inner-spaced-top {
+    padding-top: 1.6vh;
+}
+
+@mixin fifth-inner-spaced-bottom {
+    padding-bottom: 1.84vh;
+}
+
+.fifth-inner-spaced {
+    @include fifth-inner-spaced;
+}
+
+.fifth-inner-spaced-top {
+    @include fifth-inner-spaced-top;
+}
+
+.fifth-inner-spaced-bottom {
+    @include fifth-inner-spaced-bottom;
+}
+
+
+// Quarter Inner Spacing
+
+@mixin quarter-inner-spaced {
+    padding-top: 2vh;
+    padding-bottom: 2.3vh;
+}
+
+@mixin quarter-inner-spaced-top {
+    padding-top: 2vh;
+}
+
+@mixin quarter-inner-spaced-bottom {
+    padding-bottom: 2.3vh;
+}
+
+.quarter-inner-spaced {
+    @include quarter-inner-spaced;
+}
+
+.quarter-inner-spaced-top {
+    @include quarter-inner-spaced-top;
+}
+
+.quarter-inner-spaced-bottom {
+    @include quarter-inner-spaced-bottom;
+}
+
+// One Third Inner Spacing
+
+@mixin third-inner-spaced {
+    padding-top: 2.66vh;
+    padding-bottom: 3.06vh;
+}
+
+@mixin third-inner-spaced-top {
+    padding-top: 2.66vh;
+}
+
+@mixin third-inner-spaced-bottom {
+    padding-bottom: 3.06vh;
+}
+
+.third-inner-spaced {
+    @include third-inner-spaced;
+}
+
+.third-inner-spaced-top {
+    @include third-inner-spaced-top;
+}
+
+.third-inner-spaced-bottom {
+    @include third-inner-spaced-bottom;
+}
+
+// Two Fifth Inner Spacing
+
+@mixin two-fifth-inner-spaced {
+    padding-top: 3.2vh;
+    padding-bottom: 3.68vh;
+}
+
+@mixin two-fifth-inner-spaced-top {
+    padding-top: 3.2vh;
+}
+
+@mixin two-fifth-inner-spaced-bottom {
+    padding-bottom: 3.68vh;
+}
+
+.two-fifth-inner-spaced {
+    @include two-fifth-inner-spaced;
+}
+
+.two-fifth-inner-spaced-top {
+    @include two-fifth-inner-spaced-top;
+}
+
+.two-fifth-inner-spaced-bottom {
+    @include two-fifth-inner-spaced-bottom;
+}
+
+// Half Inner Spacing
+
+@mixin half-inner-spaced {
+    padding-top: 4vh;
+    padding-bottom: 4.6vh;
+}
+
+@mixin half-inner-spaced-top {
+    padding-top: 4vh;
+}
+
+@mixin half-inner-spaced-bottom {
+    padding-bottom: 4.6vh;
+}
+
+.half-inner-spaced {
+    @include half-inner-spaced;
+}
+
+.half-inner-spaced-top {
+    @include half-inner-spaced-top;
+}
+
+.half-inner-spaced-bottom {
+    @include third-inner-spaced-bottom;
+}
+
+// Three Fifth Inner Spacing
+
+@mixin three-fifth-inner-spaced {
+    padding-top: 4.8vh;
+    padding-bottom: 5.52vh;
+}
+
+@mixin three-fifth-inner-spaced-top {
+    padding-top: 4.8vh;
+}
+
+@mixin three-fifth-inner-spaced-bottom {
+    padding-bottom: 5.52;
+}
+
+.three-fifth-inner-spaced {
+    @include three-fifth-inner-spaced;
+}
+
+.three-fifth-inner-spaced-top {
+    @include three-fifth-inner-spaced-top;
+}
+
+.three-fifth-inner-spaced-bottom {
+    @include three-fifth-inner-spaced-bottom;
+}
+
+// Two Third Inner Spacing
+
+@mixin two-third-inner-spaced {
+    padding-top: 5.32vh;
+    padding-bottom: 6.13vh;
+}
+
+@mixin two-third-inner-spaced-top {
+    padding-top: 5.32vh;
+}
+
+@mixin two-third-inner-spaced-bottom {
+    padding-bottom: 6.13vh;
+}
+
+.two-third-inner-spaced {
+    @include two-third-inner-spaced;
+}
+
+.two-third-inner-spaced-top {
+    @include two-third-inner-spaced-top;
+}
+
+.two-third-inner-spaced-bottom {
+    @include two-third-inner-spaced-bottom;
+}
+
+// Three Quarter Inner Spacing
+
+@mixin three-quarter-inner-spaced {
+    margin-top: 6vh;
+    margin-bottom: 6.9vh;
+}
+
+@mixin three-quarter-inner-spaced-top {
+    margin-top: 6vh;
+}
+
+@mixin three-quarter-inner-spaced-bottom {
+    margin-bottom: 6.9vh;
+}
+
+.three-quarter-inner-spaced {
+    @include three-quarter-inner-spaced;
+}
+
+.three-quarter-inner-spaced-top {
+    @include three-quarter-inner-spaced-top;
+}
+
+.three-quarter-inner-spaced-bottom {
+    @include three-quarter-inner-spaced-bottom;
+}
+
+// Four Fifth Inner Spacing
+
+@mixin four-fifth-inner-spaced {
+    padding-top: 6.4vh;
+    padding-bottom: 7.36vh;
+}
+
+@mixin four-fifth-inner-spaced-top {
+    padding-top: 6.4vh;
+}
+
+@mixin four-fifth-inner-spaced-bottom {
+    padding-bottom: 7.36vh;
+}
+
+.four-fifth-inner-spaced {
+    @include four-fifth-inner-spaced;
+}
+
+.four-fifth-inner-spaced-top {
+    @include four-fifth-inner-spaced-top;
+}
+
+.four-fifth-inner-spaced-bottom {
+    @include four-fifth-inner-spaced-bottom;
+}
+
+// Double Inner Spacing
+
+@mixin double-inner-spaced {
+    padding-top: 16vh;
+    padding-bottom: 18.4vh;
+}
+
+@mixin double-inner-spaced-top {
+    padding-top: 16vh;
+}
+
+@mixin double-inner-spaced-bottom {
+    padding-bottom: 18.4vh;
+}
+
+.double-inner-spaced {
+    @include double-inner-spaced;
+}
+
+.double-inner-spaced-top {
+    @include double-inner-spaced-top;
+}
+
+.double-inner-spaced-bottom {
+    @include double-inner-spaced-bottom;
+}
+
+
+
+
+/*********************
+07 – VIEWPORT HEIGHT STYLES
+*********************/
+
+@mixin full-viewport {
+    //height: 800px; /* Some tweener fallback that doesn't look awful */
+    min-height: 100vh !important;
+    // min-height: 100%;
+    // max-height: 100%;
+}
+
+.full-viewport {
+    @include full-viewport;
+}
+
+@mixin third-viewport {
+    //height: 267px; /* Some tweener fallback that doesn't look awful */
+    min-height: 33.3332vh !important;
+    // min-height: 33.3332%;
+    // max-height: 33.3332%;
+}
+
+.third-viewport {
+    @include third-viewport;
+}
+
+@mixin two-third-viewport {
+    //height: 533px; /* Some tweener fallback that doesn't look awful */
+    min-height: 66.6667vh !important;
+    // min-height: 66.6667%;
+    // max-height: 66.6667%;
+}
+
+.two-third-viewport {
+    @include two-third-viewport;
+}
+
+@mixin three-quarter-viewport {
+    height: 600px; /* Some tweener fallback that doesn't look awful */
+    min-height: 75vh !important;
+    // min-height: 75%;
+    // max-height: 75%;
+}
+
+.three-quarter-viewport {
+    @include three-quarter-viewport;
+}
+
+@mixin half-viewport {
+    //height: 400px; /* Some tweener fallback that doesn't look awful */
+    min-height: 50vh !important;
+    // min-height: 50%;
+    // max-height: 50%;
+}
+
+.half-viewport {
+    @include half-viewport;
+}
+
+@mixin quarter-viewport {
+    //height: 200px; /* Some tweener fallback that doesn't look awful */
+    min-height: 25vh !important;
+    // min-height: 25%;
+    // max-height: 25%;
+}
+
+.quarter-viewport {
+    @include quarter-viewport;
+}
+
+@mixin fifth-viewport {
+    //height: 160px; /* Some tweener fallback that doesn't look awful */
+    min-height: 20vh !important;
+    // min-height: 20%;
+    // max-height: 20%;
+}
+
+.fifth-viewport {
+    @include fifth-viewport;
+}
+
+@mixin two-fifth-viewport {
+    //height: 320px; /* Some tweener fallback that doesn't look awful */
+    min-height: 40vh !important;
+    // min-height: 40%;
+    // max-height: 40%;
+}
+
+.two-fifth-viewport {
+    @include two-fifth-viewport;
+}
+
+@mixin three-fifth-viewport {
+    //height: 480px; /* Some tweener fallback that doesn't look awful */
+    min-height: 60vh !important;
+    // min-height: 60%;
+    // max-height: 60%;
+}
+
+.three-fifth-viewport {
+    @include three-fifth-viewport;
+}
+
+@mixin four-fifth-viewport {
+    //height: 640px; /* Some tweener fallback that doesn't look awful */
+    min-height: 80vh !important;
+    // min-height: 80%;
+    // max-height: 80%;
+}
+
+.four-fifth-viewport {
+    @include four-fifth-viewport;
+}
+
+@mixin sixth-viewport {
+    //height: 160px; /* Some tweener fallback that doesn't look awful */
+    min-height: 16.7vh !important;
+    // min-height: 20%;
+    // max-height: 20%;
+}
+
+.sixth-viewport {
+    @include sixth-viewport;
+}
+
+@mixin two-sixth-viewport {
+    //height: 320px; /* Some tweener fallback that doesn't look awful */
+    min-height: 33.4vh !important;
+    // min-height: 40%;
+    // max-height: 40%;
+}
+
+.two-sixth-viewport {
+    @include two-sixth-viewport;
+}
+
+@mixin three-sixth-viewport {
+    //height: 480px; /* Some tweener fallback that doesn't look awful */
+    min-height: 50.1vh !important;
+    // min-height: 60%;
+    // max-height: 60%;
+}
+
+.three-sixth-viewport {
+    @include three-sixth-viewport;
+}
+
+@mixin four-sixth-viewport {
+    //height: 640px; /* Some tweener fallback that doesn't look awful */
+    min-height: 66.8vh !important;
+    // min-height: 80%;
+    // max-height: 80%;
+}
+
+.four-sixth-viewport {
+    @include four-sixth-viewport;
+}
+
+@mixin five-sixth-viewport {
+    //height: 640px; /* Some tweener fallback that doesn't look awful */
+    min-height: 83.5vh !important;
+    // min-height: 80%;
+    // max-height: 80%;
+}
+
+.five-sixth-viewport {
+    @include four-sixth-viewport;
+}
+
+
+
+
+/*********************
+08 – BOX SHADOW
+*********************/
+
+@mixin box-shadow {
+    box-shadow: 0.25rem 0.25rem 0.5rem $black-translucent-light;
+}
+
+.four-fifth-viewport {
+    @include box-shadow;
+}

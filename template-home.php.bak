@@ -1,0 +1,42 @@
+<?php
+/*
+Template Name: Home
+Template Post Type: page
+*/
+?>
+
+<?php get_header(); ?>
+
+	<div id="content">
+
+	  <?php get_template_part( 'parts/banner', 'home' ); ?>
+
+	  <div id="inner-content">
+
+		<section id="generic-projects-grid" class="grid-container full appear-load-3">
+		  <div class="generic-grid">
+		    <div class="grid-x grid-padding-x align-center generic-grid-inner moose-infinite-scroll-homepage">
+					<?php get_template_part( 'parts/loop', 'archive' ); ?>
+	      </div>
+
+	      <div class="grid-x grid-padding-x page-load-status">
+	        <div class="cell infinite-scroll-request text-center"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/preloader-transparent.gif"></div>
+	        <div class="cell infinite-scroll-last text-center"><p class="lead">No more projects to show.</p></div>
+	        <div class="cell infinite-scroll-error text-center"><p class="lead">Something's not quite right.</p></div>
+	      </div>
+
+	    </div>
+
+		  <?php joints_page_navi(); ?>
+
+		</section>
+
+			<?php //get_template_part( 'parts/home', 'projects-grid' ); ?>
+
+	  </div> <!-- end #inner-content -->
+
+		<?php get_template_part( 'parts/footer', 'cta' ); ?>
+
+		<?php get_footer(); ?>
+
+	</div> <!-- end #content -->
