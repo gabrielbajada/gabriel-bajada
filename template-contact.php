@@ -15,9 +15,9 @@ Template Post Type: page
 
             <section id="contact-content" class="grid-container full inner-spaced appear-load-3">
 
-                <div class="grid-x grid-padding-x grid-margin-x align-center">
+                <div class="grid-x grid-padding-x align-center">
 
-                    <div class="cell small-11 large-8 xlarge-6 xxlarge-5">
+                    <div class="cell small-11 large-8 xlarge-7 xxlarge-6">
 
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

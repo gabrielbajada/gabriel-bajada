@@ -161,12 +161,16 @@ body {
 #scroll-down-container, #scroll-top-container {
 
   i {
-    font-size: 24px;
+    font-size: 24px !important;
     //@include header-styles(h3);
     @include transition-2;
 
     @include themed() {
       color: t($text);
+    }
+
+    @include breakpoint(medium) {
+      font-size: 32px !important;
     }
   }
 
@@ -210,6 +214,14 @@ body {
     i {
       //color: $primary-color;
     }
+}
+
+::selection {
+
+  @include themed() {
+    color: t($btn-hover-text);
+    background: t($primary-clr);
+  }
 }
 
 p {
@@ -259,7 +271,7 @@ a {
     border: $border-medium solid;
 
     @include themed() {
-      color: t($bg);
+      color: t($btn-hover-text);
       border-color: t($primary-clr);
       background-color: t($primary-clr);
     }
@@ -279,7 +291,7 @@ a {
       border: $border-medium solid;
 
       @include themed() {
-        color: t($bg);
+        color: t($btn-hover-text);
         border-color: t($primary-clr);
         background-color: t($primary-clr);
       }
@@ -3467,16 +3479,16 @@ BANNER STYLES
 
                 h1 {
                   margin-bottom: 0;
-                  color: $primary-color;
+                  font-weight: $global-weight-normal;
                   line-height: $global-lineheight;
-                  @include header-styles(h4);
+                  @include header-styles(h2);
 
                   @include themed() {
                     color: t($text);
                   }
 
                   @include breakpoint(medium) {
-                    @include header-styles(h3);
+                    @include header-styles(h1);
                   }
 
                   a {
@@ -3528,7 +3540,7 @@ BANNER STYLES
                   opacity: 1;
                   display: block;
                   @include quarter-spaced-top;
-                  @include header-styles(h5);
+                  @include header-styles(h4);
 
                   @include themed() {
                     color: t($text);
@@ -3543,7 +3555,7 @@ BANNER STYLES
                     color: $primary-color;
                     text-decoration: underline;
                     text-decoration-thickness: 1px;
-                    text-underline-offset: 3px;
+                    text-underline-offset: 2.5px;
 
                     @include themed() {
                       color: t($text);
@@ -3681,9 +3693,14 @@ BANNER STYLES
 
         h1 {
           font-family: $body-font-family;
+            @include header-styles(h3);
 
           @include themed() {
             font-weight: t($text-font-weight);
+          }
+
+          @include breakpoint(medium) {
+            @include header-styles(h2);
           }
         }
       }

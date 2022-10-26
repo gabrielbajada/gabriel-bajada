@@ -69,13 +69,13 @@
         <?php } ?>
 
             <div class="banner-overlay-inner grid-x grid-padding-x align-center align-bottom appear-load-3">
-                <div class="cell small-11 large-8 xlarge-6 xxlarge-5">
+                <div class="cell small-11 large-8 xxlarge-7">
 
                     <div class="callout">
 
                         <div class="grid-x grid-padding-x align-left text-left">
 
-                            <div class="cell">
+                            <div class="cell xlarge-10 xxlarge-8">
 
                              <h1>
 

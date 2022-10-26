@@ -355,7 +355,7 @@ CONTACT FORM 7 STYLES
                     @include transition-2;
 
                     @include themed() {
-                      color: t($btn-hover-text);
+                      color: t($bg);
                       background-color: t($text);
                     }
 
@@ -432,7 +432,7 @@ CONTACT FORM 7 STYLES
             color: t($text);
             text-decoration: underline;
             text-decoration-thickness: 0.5px;
-            text-underline-offset: 3px;
+            text-underline-offset: 2.5px;
           }
 
           &:hover, &:active {
