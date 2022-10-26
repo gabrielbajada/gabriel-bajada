@@ -26,7 +26,7 @@
             ///// CUSTOM FIELDS
 
             $banner_title = types_render_field("banner-title", array( "output" => "raw" ));
-            $banner_lead_paragraph = types_render_field("standfirst", array( "output" => "raw" ));
+            $banner_lead_paragraph = types_render_field("banner-lead-paragraph", array( "output" => "raw" ));
             $video_webm = types_render_field("banner-video-webm", array( "output" => "raw" ));
             $video_mp4 = types_render_field("banner-video-mp4", array( "output" => "raw" ));
 
@@ -69,13 +69,13 @@
         <?php } ?>
 
             <div class="banner-overlay-inner grid-x grid-padding-x align-center align-bottom appear-load-3">
-                <div class="cell small-11 medium-8 xlarge-6 xxlarge-5">
+                <div class="cell small-11 large-8 xlarge-6 xxlarge-5">
 
                     <div class="callout">
 
-                        <div class="grid-x grid-padding-x align-center text-center">
+                        <div class="grid-x grid-padding-x align-left text-left">
 
-                            <div class="cell small-12">
+                            <div class="cell">
 
                              <h1>
 

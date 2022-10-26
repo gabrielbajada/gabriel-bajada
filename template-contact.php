@@ -17,11 +17,11 @@ Template Post Type: page
 
                 <div class="grid-x grid-padding-x grid-margin-x align-center">
 
-                    <div class="cell large-11 xlarge-9 xxlarge-8">
+                    <div class="cell small-11 large-8 xlarge-6 xxlarge-5">
 
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                        <div class="grid-x grid-padding-x">
+                        <div class="grid-x grid-padding-x align-center">
 
                             <?php get_template_part( 'parts/contact', 'form' ); ?>
 

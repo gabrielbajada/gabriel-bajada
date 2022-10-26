@@ -93,14 +93,14 @@
 
         <?php } ?>
 
-            <div class="banner-overlay-inner grid-x grid-padding-x align-center-middle appear-load-3">
-                <div class="cell small-11 xxlarge-10">
+            <div class="banner-overlay-inner grid-x grid-padding-x align-center align-bottom appear-load-3">
+                <div class="cell small-11 large-8 xlarge-6 xxlarge-5">
 
                     <div class="callout">
 
                         <div class="grid-x grid-padding-x align-left text-left">
 
-                            <div class="cell medium-10 xlarge-9 xxlarge-7">
+                            <div class="cell">
 
                               <h1>
 

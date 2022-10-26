@@ -60,6 +60,7 @@ CONTACT FORM 7 STYLES
 .wpcf7 {
 
   form {
+    @include webkit-fix;
 
     fieldset {
       margin-top: 0;
@@ -88,7 +89,7 @@ CONTACT FORM 7 STYLES
         font-size: 80%;
 
         @include themed() {
-          color: t($text-medium-emphasis);
+          color: t($text);
         }
     }
 
@@ -106,48 +107,130 @@ CONTACT FORM 7 STYLES
     input[type="time"],
     input[type="url"],
     input[type="color"],
+    input[type="file"],
     select,
     textarea {
-        // padding: 1.15rem !important;
-        //padding-left: 0;
-        //padding-right: 0;
-        height: 3.125rem;
-        font-family: $header-font-family;
-        font-weight: $global-weight-normal;
-        //font-size: 1.188rem;
-        border: none;
-        //border-bottom: $border-thin solid $black;
+      // padding: 1.15rem !important;
+      //padding-left: 0;
+      //padding-right: 0;
+      height: 3.125rem;
+      font-family: $header-font-family;
+      font-weight: $global-weight-normal;
+      //font-size: 1.188rem;
+      border: none;
+      //border-bottom: $border-thin solid $black;
 
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        @include transition-2;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      @include transition-2;
+
+      @include themed() {
+        color: t($text);
+        background-color: t($surface-1);
+      }
+
+      &:focus {
+          @include transition-1;
+          //border-bottom: $border-thick solid $primary-color;
+
+          @include themed() {
+            color: t($text);
+            background-color: t($surface-2);
+          }
+      }
+
+      &::placeholder {
+        opacity: 1; /* Firefox */
 
         @include themed() {
-          color: t($text);
-          background-color: t($surface-1);
+          color: t($text-medium-emphasis) !important;
+        }
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+       @include themed() {
+         color: t($text-medium-emphasis) !important;
+       }
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+
+       @include themed() {
+         color: t($text-medium-emphasis) !important;
+       }
+      }
+    }
+
+    input[type="file"] {
+      padding: 0.8rem;
+    }
+
+    .select {
+      overflow: hidden;
+      position: relative;
+
+      &:after {
+        padding: 0.25rem;
+        margin: 0;
+        width: 3.125rem;
+        height: 3.125rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-family: "Material Symbols Sharp";
+        content: "\e5cf";
+        font-size: 24px;
+        text-align: center;
+        border-radius: $global-radius;
+        pointer-events: none;
+
+        @include themed() {
+          color: t($text-medium-emphasis);
+          border-color: t($surface-3);
+          background-color: t($surface-3);
         }
 
         &:focus {
-            @include transition-1;
-            //border-bottom: $border-thick solid $primary-color;
-
-            @include themed() {
-              color: t($text);
-              background-color: t($surface-2);
-            }
-        }
-
-        &::-webkit-input-placeholder,
-        &::-moz-placeholder,
-        &::-moz-placeholder,
-        &:-moz-placeholder,
-        &:-ms-input-placeholder {
 
           @include themed() {
-            color: t($surface-2);
+            background-color: t($surface-2);
           }
         }
+      }
+
+      select {
+        cursor: pointer;
+        @include transition-2;
+
+        -webkit-appearance: none;
+        /* for webkit browsers */
+        -moz-appearance: none;
+        /* for firefox */
+        appearance: none;
+        /* for modern browsers *//* remove default caret for ie */
+
+        &:hover {
+          @include transition-1;
+
+          @include themed() {
+            background-color: t($surface-2);
+          }
+        }
+
+        &::-ms-expand {
+          display: none;
+        }
+
+        &:focus:invalid {
+          border-color: #FD6347;
+        }
+
+        &:required:valid {
+          border-color: #006400;
+        }
+      }
     }
 
     .wpt-form-set-checkboxes, .wpt-form-item-checkbox {
@@ -173,6 +256,32 @@ CONTACT FORM 7 STYLES
         }
     }
 
+    .input-group {
+
+        .input-group-label {
+          font-family: $header-font-family;
+            font-weight: $global-weight-normal;
+            border: none;
+            border-bottom: $border-thin solid;
+            background-color: $secondary-color; //scale-color($secondary-color, $lightness: 85%);
+            @include header-styles(h5);
+
+            @include themed() {
+              color: t($text-medium-emphasis);
+              border-color: t($surface-3);
+              background-color: t($surface-3);
+            }
+        }
+
+        .wpcf7-form-control-wrap {
+            width: 100%;
+
+            input[type="number"] {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
     // CUSTOM CHECKBOX STYLING
     .project-type {
         //background-color: #fff;
@@ -181,6 +290,14 @@ CONTACT FORM 7 STYLES
         position: relative;
         @include xy-grid-container;
         @include xy-gutters($negative: true);
+
+        h4 {
+          font-weight: $global-weight-normal;
+
+          @include themed() {
+            color: t($text);
+          }
+        }
 
         .wpcf7-checkbox {
             @include xy-grid;
@@ -233,18 +350,20 @@ CONTACT FORM 7 STYLES
                     position: relative;
                     z-index: 2;
                     overflow: hidden;
+                    font-family: $header-font-family;
+                    font-weight: $global-weight-medium;
                     @include transition-2;
 
                     @include themed() {
-                      color: t($bg);
-                      background-color: t($text-medium-emphasis);
+                      color: t($btn-hover-text);
+                      background-color: t($text);
                     }
 
                     &:hover, &:active {
                       @include transition-1;
 
                       @include themed() {
-                        color: t($bg);
+                        color: t($btn-hover-text);
                         background-color: t($primary-clr);
                       }
                     }
@@ -253,22 +372,29 @@ CONTACT FORM 7 STYLES
                         width: 100%;
                         height: 100%;
                         content: '';
-                        background-color: $secondary-color;
                         position: absolute;
                         left: 0;
                         top: 0;
                         opacity: 0;
                         z-index: -1;
                         @include transition-1;
+
+                        @include themed() {
+                          color: t($btn-hover-text);
+                          background-color: t($text);
+                        }
                     }
                 }
 
                 input:checked ~ .wpcf7-list-item-label {
-                    color: #fff;
 
-                    &:before {
-                        opacity: 1;
-                    }
+                  @include themed() {
+                    color: t($btn-hover-text);
+                  }
+
+                  &:before {
+                    opacity: 1;
+                  }
                 }
 
                 input {
@@ -299,102 +425,78 @@ CONTACT FORM 7 STYLES
         @include themed() {
           color: t($text);
         }
+
+        a {
+
+          @include themed() {
+            color: t($text);
+            text-decoration: underline;
+            text-decoration-thickness: 0.5px;
+            text-underline-offset: 3px;
+          }
+
+          &:hover, &:active {
+
+            @include themed() {
+              color: t($primary-clr);
+            }
+          }
+        }
     }
 
     .mc4wp-checkbox-contact-form-7 {
 
-        label {
-            cursor: pointer;
+      label {
 
-            input[type="checkbox"] {
-                //opacity: 0;
-                display: none;
-            }
-
-            span {
-                /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
-                padding-left: 32px;
-                margin: 0;
-                margin-bottom: rem-calc(map-get($grid-column-gutter, small) / 2 );
-                font-weight: $global-weight-normal;
-                text-transform: initial;
-                position: relative;
-                display: inline-block;
-                @include header-styles(h5);
-
-                @include themed() {
-                  color: t($text);
-                }
-
-                &::before, &::after {
-                    position: absolute;
-                    content: "";
-
-                    /*Needed for the line-height to take effect*/
-                    display: inline-block;
-                }
-
-                &::before {
-                    height: 19px;
-                    width: 19px;
-
-                    border: $border-medium solid;
-                    left: 0px;
-
-                    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
-                     *to vertically center it.
-                     */
-                    top: 4px;
-                    @include transition-2;
-
-                    @include themed() {
-                      background-color: t($surface-2);
-                      border-color: t($surface-2);
-                    }
-                }
-
-                &::after {
-                    height: 7px;
-                    width: 11px;
-                    border-left: $border-medium solid;
-                    border-bottom: $border-medium solid;
-
-                    transform: rotate(-45deg);
-
-                    left: 4px;
-                    top: 9px;
-                    @include transition-2;
-
-                    @include themed() {
-                      border-color: t($surface-2);
-                    }
-                }
-            }
-
-            /*Hide the checkmark by default*/
-            input[type="checkbox"] + span::after {
-                content: none;
-                @include transition-2;
-            }
-
-            /*Unhide on the checked state*/
-            input[type="checkbox"]:checked + span::after {
-                content: "";
-                @include transition-2;
-            }
-
-            input[type="checkbox"]:checked + span::before {
-                border-color: $primary-color;
-                background-color: $primary-color;
-                @include transition-1;
-            }
-
-            /*Adding focus styles on the outer-box of the fake checkbox*/
-            input[type="checkbox"]:focus + span::before {
-                outline: rgb(59, 153, 252) auto 5px;
-                @include transition-1;
-            }
+        input[type=checkbox] {
+            display: none;
         }
+
+        span {
+          padding-left: 32px;
+          margin: 0;
+          margin-bottom: rem-calc(map-get($grid-column-gutter, small) / 2 );
+          font-weight: $global-weight-normal;
+          text-transform: initial;
+          position: relative;
+          display: inline-block;
+          @include header-styles(h5);
+
+          @include themed() {
+            color: t($text);
+          }
+        }
+
+        input[type=checkbox] + span:after {
+          font-family: 'Material Symbols Sharp';
+          content: "";
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          left: 0;
+          top: 0.25rem;
+          @include transition-2;
+
+          @include themed() {
+            border-color: t($primary-clr);
+            background-color: t($surface-1);
+          }
+        }
+
+        input[type=checkbox]:checked + span:after {
+          content: "\E5CA";
+          font-size: 24px;
+          text-align: center;
+          line-height: 24px;
+          @include transition-2;
+
+          @include themed() {
+            color: t($btn-hover-text);
+            background-color: t($primary-clr);
+          }
+        }
+      }
     }
 
     .button {
@@ -421,13 +523,17 @@ CONTACT FORM 7 STYLES
         margin: 0;
         padding: 1.25rem;
         color: $white;
-        font-family: $body-font-family;
+        font-family: $header-font-family;
         text-align: center;
         text-transform: uppercase;
         font-weight: $global-weight-bold;
         line-height: 150%;
         background-color: $success-color; /* Green */
         border: none;
+
+        @include themed() {
+          color: t($bg);
+        }
     }
 
     &.failed .wpcf7-response-output,
@@ -443,25 +549,31 @@ CONTACT FORM 7 STYLES
     &.unaccepted .wpcf7-response-output {
         margin: 0;
         padding: 1.25rem;
-        color: $white;
-        font-family: $body-font-family;
         text-align: center;
         text-transform: uppercase;
+        font-family: $header-font-family;
         font-weight: $global-weight-bold;
         line-height: 150%;
         background-color: $warning-color;
         border: none;
+
+        @include themed() {
+          color: t($bg);
+        }
     }
 
     span.wpcf7-not-valid-tip {
         margin: -1rem 0 1.5rem 0; // -1.25rem 0 1.5rem 0;
         padding: 0.25rem 0.5rem;
         text-transform: uppercase;
-        font-family: $body-font-family;
+        font-family: $header-font-family;
         font-weight: $global-weight-bold;
         font-size: 0.8rem;
-        color: $white;
         background-color: $alert-color;
+
+        @include themed() {
+          color: t($bg);
+        }
     }
   }
 }

@@ -3,7 +3,7 @@
 ?>
 
 <!-- section id="contact-form" class="cell small-order-2 medium-8 medium-order-1 xlarge-8" -->
-<section id="contact-form" class="cell medium-8 xlarge-7">
+<section id="contact-form" class="cell">
 
     <?php echo $contact_form; ?>
 

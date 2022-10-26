@@ -47,6 +47,39 @@ BALANCE TEXT STYLES
 
 
 
+
+/*********************
+WEBKIT AUTOFILL STYLES
+*********************/
+
+@mixin webkit-fix {
+  //input:-webkit-autofill::first-line,
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    @include header-styles(h5);
+
+    @include themed() {
+      -webkit-box-shadow: 0 0 0px 1000px t($surface-2) inset !important;
+      transition: background-color 5000s ease-in-out 0s !important;
+      -webkit-text-fill-color: t($text) !important;
+    }
+
+    @include breakpoint(xlarge) {
+      @include header-styles(h4);
+    }
+  }
+}
+
+
+
+
 /*********************
 02 – MAINTAIN ASPECT RATIO
 *********************/

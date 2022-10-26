@@ -5,7 +5,7 @@ GLOBAL STYLES
 html {
 
   @include themed() {
-    background-color: t($bg);
+    background-color: t($primary-clr) !important;
   }
 }
 
@@ -40,14 +40,13 @@ body {
   &.theme--dark {
     .btn-toggle {
       .btn-toggle-dark {
-        display: none !important;
+        display: none;
       }
       .btn-toggle-light {
-        display: block !important;
+        display: block;
       }
     }
   }
-
 }
 
 .off-canvas-wrapper {
@@ -237,9 +236,7 @@ a {
   @include transition-2;
   //padding: 0.75rem 0.25rem;
   padding-bottom: 1.25rem;
-  color: $white;
-  background: $primary-color;
-  border: $border-medium solid $primary-color;
+  border: $border-medium solid;
   font-family: $header-font-family;
   font-weight: $global-weight-medium;
   text-transform: uppercase;
@@ -251,23 +248,42 @@ a {
 
   @include header-styles(h5);
 
+  @include themed() {
+    color: t($bg);
+    border-color: t($text);
+    background-color: t($text);
+  }
+
+  &:hover, &:active, &:focus {
+    @include transition-1;
+    border: $border-medium solid;
+
+    @include themed() {
+      color: t($bg);
+      border-color: t($primary-clr);
+      background-color: t($primary-clr);
+    }
+  }
+
   &.hollow {
     color: $white;
     border: $border-medium solid $white;
     background: transparent;
 
-    &:hover, &:active, &:focus {
-      color: $white;
-      border: $border-medium solid $white;
-      background-color: $secondary-color-dark-translucent;
+    @include themed() {
+      color: t($text);
+      border-color: t($text);
     }
-  }
 
-  &:hover, &:active, &:focus {
-    @include transition-1;
-    //color: $white;
-    background: $primary-color-dark;
-    border: $border-medium solid $primary-color-dark;
+    &:hover, &:active, &:focus {
+      border: $border-medium solid;
+
+      @include themed() {
+        color: t($bg);
+        border-color: t($primary-clr);
+        background-color: t($primary-clr);
+      }
+    }
   }
 
   &:after, .material-symbols-sharp {
@@ -329,16 +345,23 @@ a {
 }
 
 .lead, .wpcf-field-lead, .wpcf-field-lead p {
-    font-family: $header-font-family;
-    font-weight: $global-weight-light;
-    line-height: $global-lineheight;
-    opacity: 1;
+  font-family: $body-font-family;
+  line-height: $global-lineheight;
+  opacity: 1;
 
+  @include header-styles(h4);
+
+  @include themed() {
+    color: t($text-font-weight);
+  }
+
+  p {
     @include header-styles(h4);
 
-    p {
-        @include header-styles(h4);
+    @include themed() {
+      color: t($text-font-weight);
     }
+  }
 }
 
 .section-title {
@@ -2497,7 +2520,7 @@ HEADER STYLES - OFFCANVAS MENU
     }
 
 
-    // Set the height of the banner here
+    // Set the height of the searchbar here
     @mixin offcanvas-search-height {
       height: 6rem;
 
@@ -2507,32 +2530,6 @@ HEADER STYLES - OFFCANVAS MENU
 
       @include breakpoint(xlarge) {
         height: 6rem;
-      }
-    }
-
-    // Webkit Autofill Colour Fix
-    @mixin webkit-fix {
-      input:-webkit-autofill::first-line,
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      textarea:-webkit-autofill,
-      textarea:-webkit-autofill:hover,
-      textarea:-webkit-autofill:focus,
-      select:-webkit-autofill,
-      select:-webkit-autofill:hover,
-      select:-webkit-autofill:focus {
-        @include header-styles(h5);
-
-        @include themed() {
-          -webkit-box-shadow: 0 0 0px 1000px t($surface-2) inset !important;
-          transition: background-color 5000s ease-in-out 0s;
-          -webkit-text-fill-color: t($text) !important;
-        }
-
-        @include breakpoint(xlarge) {
-          @include header-styles(h4);
-        }
       }
     }
 
@@ -3130,7 +3127,7 @@ FOOTER STYLES
               .widget {
 
                 ul {
-                  text-align: center;
+                  text-align: left;
 
                   li {
                     display: block;
@@ -3499,11 +3496,16 @@ BANNER STYLES
 
                   .title {
                     color: $secondary-color;
-                    font-family: $header-font-family;
+                    font-family: $tertiary-font-family;
                     font-weight: $global-weight-medium;
                     text-transform: uppercase;
                     letter-spacing: 0.25rem;
                     text-indent: 0.25rem;
+
+                    width: fit-content;
+                    padding: 0.25rem;
+                    padding-bottom: 0.3rem;
+                    line-height: $global-lineheight;
 
                     display: block;
 
@@ -3511,7 +3513,8 @@ BANNER STYLES
                     @include quarter-spaced-bottom;
 
                     @include themed() {
-                      color: t($text);
+                      color: t($btn-hover-text);
+                      background-color: t($primary-clr);
                     }
 
                     &.light {
@@ -3539,6 +3542,8 @@ BANNER STYLES
                   a {
                     color: $primary-color;
                     text-decoration: underline;
+                    text-decoration-thickness: 1px;
+                    text-underline-offset: 3px;
 
                     @include themed() {
                       color: t($text);

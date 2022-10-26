@@ -60,7 +60,7 @@
                                     <?php endif; ?>
                                 </div>
 
-                                <div class="cell small-4 medium-6 text-right xxlarge-6 credit">
+                                <div class="cell small-4 medium-6 xxlarge-6 text-right credit">
                                     <a href="http://www.moose.com.mt" title="Designed & Developed by Moose" target="_blank">
                                       <div class="moose-mark"> </div>
                                     </a>
