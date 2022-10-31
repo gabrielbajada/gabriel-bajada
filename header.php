@@ -13,8 +13,8 @@
   if (!empty($_COOKIE['theme'])) {
     if ($_COOKIE['theme'] == 'dark') {
       $themeClass = 'theme--dark';
-    } elseif ($_COOKIE['theme'] == 'default') {
-      $themeClass = 'theme--default';
+    } elseif ($_COOKIE['theme'] == 'light') {
+      $themeClass = 'theme--light';
     }
   }
 ?>
@@ -50,8 +50,6 @@
 
     <!-- Owl Carousel Styles -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/vendor/owl-carousel/owl.carousel.css">
-    <!--link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/vendor/owl-carousel/animate.css" -->
-    <!-- link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/ -->
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -60,7 +58,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20,600,1,200" rel="stylesheet" />
 
     <!-- Dark Mode Theme Declaration -->
-    <meta name="color-scheme" content="dark default">
+    <meta name="color-scheme" content="dark light">
 
 	</head>
 

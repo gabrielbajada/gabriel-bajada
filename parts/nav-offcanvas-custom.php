@@ -28,7 +28,7 @@
               <button id="theme-toggle" class="btn-toggle">
                 <i class="material-symbols-sharp btn-toggle-light" title="It takes strength to resist the dark side">brightness_7</i>
                 <i class="material-symbols-sharp btn-toggle-dark" title="Come, join the dark side">brightness_4</i>
-              </button -->
+              </button>
             </li>
 
             <li>

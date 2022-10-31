@@ -307,6 +307,20 @@ WEBKIT AUTOFILL STYLES
     @include appear-scroll-3;
 }
 
+@mixin appear-scroll-4 {
+    opacity: 0;
+    @include transition-5;
+
+    &.visible {
+        opacity: 1;
+        @include transition-6;
+    }
+}
+
+.appear-scroll-4 {
+    @include appear-scroll-4;
+}
+
 
 
 

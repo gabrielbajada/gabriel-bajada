@@ -364,35 +364,48 @@ CONTACT FORM 7 STYLES
 
                       @include themed() {
                         color: t($btn-hover-text);
+                        background-color: t($text-medium-emphasis);
+                      }
+                    }
+
+                    &:before, &:after {
+                      opacity: 0;
+                    }
+
+                    &:before {
+                      width: 100%;
+                      height: 100%;
+                      content: "";
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      z-index: -1;
+                      @include transition-1;
+
+                      @include themed() {
+                        color: t($btn-hover-text);
                         background-color: t($primary-clr);
                       }
                     }
 
-                    &:before {
-                        width: 100%;
-                        height: 100%;
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        opacity: 0;
-                        z-index: -1;
-                        @include transition-1;
-
-                        @include themed() {
-                          color: t($btn-hover-text);
-                          background-color: t($text);
-                        }
+                    &:after {
+                      font-family: 'Material Symbols Sharp';
+                      content: "\E5CA";
+                      right: 1rem;
+                      top: 0.25rem;
+                      display: block;
+                      position: absolute;
+                      font-size: 24px;
                     }
                 }
 
                 input:checked ~ .wpcf7-list-item-label {
 
-                  @include themed() {
-                    color: t($btn-hover-text);
-                  }
+                @include themed() {
+                  color: t($btn-hover-text);
+                }
 
-                  &:before {
+                  &:before, &:after {
                     opacity: 1;
                   }
                 }
@@ -510,70 +523,103 @@ CONTACT FORM 7 STYLES
     // VALIDATION STYLES
 
     .wpcf7-response-output {
-        margin: 2em 0.5em 1em;
-        padding: 0.2em 1em;
-        border: 2px solid #00a0d2; /* Blue */
+      padding: 0.2em 1em;
+      margin: 0;
+      display: block;
+      font-family: $tertiary-font-family;
+      font-weight: $global-weight-normal;
+      line-height: 150%;
+      text-align: center;
+      border: none;
+      @include half-spaced-top;
+      @include quarter-inner-spaced;
+      @include header-styles(h4);
+
+      @include themed() {
+        color: t($btn-hover-text);
+      }
+
+      &:before {
+        margin-right: 1rem;
+        display: inline-block;
+        font-family: 'Material Symbols Sharp';
+        font-size: 24px;
+        font-size: 24px;
+      }
     }
 
     &.init .wpcf7-response-output {
-        display: none;
+      display: none;
     }
 
     &.sent .wpcf7-response-output {
-        margin: 0;
-        padding: 1.25rem;
-        color: $white;
-        font-family: $header-font-family;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: $global-weight-bold;
-        line-height: 150%;
-        background-color: $success-color; /* Green */
-        border: none;
+      @include themed() {
+        background-color: t($success-clr);
+      }
 
-        @include themed() {
-          color: t($bg);
-        }
+      &:before {
+        content: "check";
+      }
     }
 
     &.failed .wpcf7-response-output,
     &.aborted .wpcf7-response-output {
-        border-color: #dc3232; /* Red */
+      @include themed() {
+        background-color: t($alert-clr);
+      }
+
+      &:before {
+        content: "error";
+      }
     }
 
     &.spam .wpcf7-response-output {
-        border-color: #f56e28; /* Orange */
+      @include themed() {
+        background-color: t($warning-clr);
+      }
+
+      &:before {
+        content: "warning";
+      }
     }
 
     &.invalid .wpcf7-response-output,
     &.unaccepted .wpcf7-response-output {
-        margin: 0;
-        padding: 1.25rem;
-        text-align: center;
-        text-transform: uppercase;
-        font-family: $header-font-family;
-        font-weight: $global-weight-bold;
-        line-height: 150%;
-        background-color: $warning-color;
-        border: none;
+      @include themed() {
+        color: t($bg);
+        background-color: t($warning-clr);
+      }
 
-        @include themed() {
-          color: t($bg);
-        }
+      &:before {
+        content: "warning";
+      }
     }
 
-    span.wpcf7-not-valid-tip {
-        margin: -1rem 0 1.5rem 0; // -1.25rem 0 1.5rem 0;
-        padding: 0.25rem 0.5rem;
-        text-transform: uppercase;
-        font-family: $header-font-family;
-        font-weight: $global-weight-bold;
-        font-size: 0.8rem;
-        background-color: $alert-color;
 
-        @include themed() {
-          color: t($bg);
-        }
+
+    span.wpcf7-not-valid-tip {
+      position: relative;
+      margin: -1rem 0 1.5rem 0; // -1.25rem 0 1.5rem 0;
+      padding: 0.25rem 0.5rem;
+      padding-left: 2rem;
+      font-family: $tertiary-font-family;
+      font-weight: $global-weight-normal;
+      //font-size: 0.8rem;
+
+      @include themed() {
+        color: t($bg);
+        background-color: t($alert-clr);
+      }
+
+      &:before {
+        font-family: 'Material Symbols Sharp';
+        content: "\e000";
+        top: -0.05rem;
+        left: 0.25rem;
+        display: block;
+        position: absolute;
+        font-size: 24px;
+      }
     }
   }
 }

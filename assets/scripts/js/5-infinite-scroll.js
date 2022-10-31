@@ -1,4 +1,4 @@
-// Infinite Scroll
+// Infinite Scroll Generic
 
 jQuery(document).ready(function() {
 
@@ -11,7 +11,9 @@ jQuery(document).ready(function() {
     scrollThreshold: 800,
     prefill: true,
     status: '.page-load-status',
-    history: false
+    history: false,
+    hiddenStyle: { opacity: 0 },
+    visibleStyle: { opacity: 1 }
   });
 
   // link used to get absolute path, beginning with /
@@ -26,7 +28,7 @@ jQuery(document).ready(function() {
 });
 
 
-// Infinite Scroll
+// Infinite Scroll Home Page
 
 jQuery(document).ready(function() {
 
@@ -39,7 +41,9 @@ jQuery(document).ready(function() {
     scrollThreshold: 800,
     prefill: true,
     status: '.page-load-status',
-    history: false
+    history: false,
+    hiddenStyle: { opacity: 0 },
+    visibleStyle: { opacity: 1 }
   });
 
   // link used to get absolute path, beginning with /

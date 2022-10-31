@@ -27,7 +27,7 @@ body {
 
   // Dark Mode
 
-  &.theme--default {
+  &.theme--light {
     .btn-toggle {
       .btn-toggle-dark {
         display: block;
@@ -233,15 +233,22 @@ p {
 }
 
 a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
   @include transition-2;
 
-    &:hover, &:active {
-      @include transition-1;
+  @include themed() {
+    color: t($text);
+  }
 
-      @include themed() {
-        color: t($hover);
-      }
+  &:hover, &:active {
+    @include transition-1;
+
+    @include themed() {
+      color: t($hover);
     }
+  }
 }
 
 .button {
@@ -651,7 +658,6 @@ a .featured-image {
 .card {
   border: none;
   border-radius: $global-radius;
-  background-color: $primary-color-light;
   margin-bottom: 0;
   padding: rem-calc(map-get($grid-column-gutter, small));
 
@@ -669,10 +675,15 @@ a .featured-image {
 }
 
 .callout {
+  border: none;
 
-    @include breakpoint(large) {
-        padding: 1.111rem;
-    }
+  @include themed() {
+    background-color: t($surface-1);
+  }
+
+  @include breakpoint(large) {
+      padding: 1.111rem;
+  }
 }
 
 .close-button {
@@ -2793,6 +2804,7 @@ HEADER STYLES - OFFCANVAS MENU
               font-family: $tertiary-font-family;
               font-weight: $global-weight-normal;
               text-transform: uppercase;
+              text-decoration: none;
               @include header-styles(h5);
 
               letter-spacing: 0.25rem;
@@ -3154,6 +3166,7 @@ FOOTER STYLES
                       font-family: $tertiary-font-family;
                       font-weight: $global-weight-normal;
                       text-transform: uppercase;
+                      text-decoration: none;
                       @include header-styles(h5);
 
                       letter-spacing: 0.25rem;
@@ -3480,7 +3493,7 @@ BANNER STYLES
                 h1 {
                   margin-bottom: 0;
                   font-weight: $global-weight-normal;
-                  line-height: $global-lineheight;
+                  line-height: $global-lineheight-short;
                   @include header-styles(h2);
 
                   @include themed() {

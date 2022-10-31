@@ -4,10 +4,12 @@ $surface-2: 'surface-2';
 $surface-3: 'surface-3';
 $primary-clr: 'primary-clr';
 $secondary-clr: 'secondary-clr';
+$success-clr: 'success-clr';
+$warning-clr: 'warning-clr';
+$alert-clr: 'alert-clr';
 $text-font-weight: 'text-font-weight';
 $text: 'text';
 $text-medium-emphasis: 'text-medium-emphasis';
-$text-secondary: 'text-secondary';
 $link: 'link';
 $hover: 'hover';
 $btn-hover-text: 'btn-hover-text';
@@ -18,7 +20,7 @@ $offcanvas-overlay: 'offcanvas-overlay';
 
 $themes: (
 
-  default: (
+  light: (
     logo: url("../images/gabriel-bajada-logo.png"),
     moose-logo: url("https://gabrielbajada-host1.com/host/credits/moose-mark-black.png"),
     bg: scale-color($white, $lightness: -11%),
@@ -27,17 +29,17 @@ $themes: (
     surface-3: $white,
     primary-clr: $primary-color,
     secondary-clr: scale-color($primary-color, $lightness: -20%),
+    success-clr: $success-color,
+    warning-clr: $warning-color,
+    alert-clr: $alert-color,
     card-bg: $lighter-gray,
     text-font-weight: 500,
     text: $black,
     text-medium-emphasis: scale-color($black, $lightness: 60%),
-    //text-secondary: $text--2--light,
-    //link: $brand--blue--light,
     hover: $primary-color, //scale-color($black, $lightness: 20%),
     btn-hover-text: $black,
     image-opacity: 1,
     offcanvas-overlay: rgba(228, 228, 228, 0.95),
-    //border: $border--light
   ),
 
   dark: (
@@ -49,12 +51,13 @@ $themes: (
     surface-3: scale-color($black, $lightness: 8%),
     primary-clr: $secondary-color,
     secondary-clr: scale-color($secondary-color, $lightness: -20%),
+    success-clr: #5be18d,
+    warning-clr: #ffc74e,
+    alert-clr: #d87566,
     card-bg: $darker-gray,
     text-font-weight: 600,
     text: $white,
     text-medium-emphasis: scale-color($white, $lightness: -60%),
-    //text-secondary: $text--2--dark,
-    //link: $brand--blue--dark,
     hover: $secondary-color, //scale-color($white, $lightness: -20%),
     btn-hover-text: $black,
     image-opacity: 0.85,

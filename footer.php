@@ -81,14 +81,16 @@
     <!-- Owl Carousel JS -->
     <script defer src="<?php echo get_template_directory_uri(); ?>/vendor/owl-carousel/owl.carousel.min.js"></script>
 
-    <!-- Infinite Scroll -->
-    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
-
     <!-- Balance Text -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/balance-text/3.3.1/balancetext.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/balance-text/3.3.1/balancetext.min.js"></script -->
+    <script defer src="<?php echo get_template_directory_uri(); ?>/vendor/balance-text/balancetext.min.js"></script>
     <script>
       balanceText();
     </script>
+
+    <!-- Infinite Scroll -->
+    <!--script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script-->
+    <script defer src="<?php echo get_template_directory_uri(); ?>/vendor/infinite-scroll/infinite-scroll.pkgd.min.js"></script>
 
 	</body>
 </html> <!-- end page -->

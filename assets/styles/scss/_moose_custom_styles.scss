@@ -6,13 +6,22 @@ GENERIC ITEM STYLES
   //@include double-inner-spaced;
 
   article {
-    @include double-inner-spaced;
+    @include double-spaced;
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 250ms; /* don't forget to set a duration! */
 
     .card {
       padding: 0;
-      background-color: transparent;
+
+      @include themed() {
+        background-color: t($surface-1);
+      }
 
       .card-image {
+
+        @include themed() {
+          background-color: t($bg);
+        }
 
         .featured-image-container {
           @include aspect-ratio(4, 3);
@@ -23,16 +32,20 @@ GENERIC ITEM STYLES
       .card-section {
         padding: rem-calc(map-get($grid-column-gutter, small) );
 
+        @include themed() {
+          background-color: t($surface-1);
+        }
+
         @include breakpoint(medium) {
           padding: rem-calc(map-get($grid-column-gutter, medium) );
         }
 
         @include breakpoint(xlarge) {
-          padding: rem-calc(map-get($grid-column-gutter, xlarge) );
+          padding: rem-calc(map-get($grid-column-gutter, xlarge) / 2 );
         }
 
         @include breakpoint(xxlarge) {
-          padding: rem-calc(map-get($grid-column-gutter, xxlarge) );
+          padding: rem-calc(map-get($grid-column-gutter, xxlarge) / 2 );
         }
 
         h3 {
@@ -40,6 +53,7 @@ GENERIC ITEM STYLES
 
           a {
             font-weight: $global-weight-medium;
+            text-decoration: none;
             @include balance-text;
 
             @include themed() {
@@ -49,7 +63,7 @@ GENERIC ITEM STYLES
             &:hover, &:active {
 
               @include themed() {
-                color: t($hover);
+                color: t($text-medium-emphasis);
               }
             }
           }
@@ -60,12 +74,13 @@ GENERIC ITEM STYLES
         }
 
         .cta {
+          @include quarter-spaced-top;
+          text-decoration: none;
 
           @include breakpoint(medium) {
             text-indent: 0;
           }
         }
-
       }
     }
   }
@@ -84,6 +99,70 @@ HOME PAGE STYLES
 
 .page-template-template-home {
 
+  #generic-projects-grid {
+
+    article {
+
+      .card {
+        background-color: transparent;
+
+        .card-image {
+        }
+
+        .card-section {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+/******************************************
+WORK PAGE STYLES
+******************************************/
+
+.page-template-template-work {
+
+  #generic-projects-grid {
+    @include double-inner-spaced-top;
+
+    article {
+      @include half-spaced;
+
+      &:hover, &:active {
+        @include transition-1;
+
+        .card {
+
+          .card-section {
+            @include transition-2;
+
+            @include themed() {
+              background: t($surface-2);
+            }
+          }
+        }
+      }
+
+      .card {
+
+        .card-image {
+        }
+
+        .card-section {
+          @include transition-1;
+
+          @include themed() {
+            background: t($surface-1);
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -134,6 +213,39 @@ UPDATES PAGE STYLES
           }
 
         }
+      }
+    }
+  }
+}
+
+
+
+
+/*********************
+ABOUT PAGE STYLES
+*********************/
+
+
+.page-template-template-about {
+
+  #about-container {
+    @include inner-spaced;
+
+    #about-bio {
+
+      p {
+
+        @include themed() {
+          color: t($text);
+          font-weight: t($text-font-weight);
+        }
+      }
+    }
+
+    #about-details {
+
+      @include themed() {
+        color: t($text);
       }
     }
   }
