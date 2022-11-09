@@ -15,6 +15,7 @@ $hover: 'hover';
 $btn-hover-text: 'btn-hover-text';
 $logo: 'logo';
 $moose-logo: 'moose-logo';
+$client-logo-color: 'client-logo-color';
 $image-opacity: 'image-opacity';
 $offcanvas-overlay: 'offcanvas-overlay';
 
@@ -23,6 +24,7 @@ $themes: (
   light: (
     logo: url("../images/gabriel-bajada-logo.png"),
     moose-logo: url("https://gabrielbajada-host1.com/host/credits/moose-mark-black.png"),
+    client-logo-color: invert(6%) sepia(4%) saturate(184%) hue-rotate(314deg) brightness(102%) contrast(97%),
     bg: scale-color($white, $lightness: -11%),
     surface-1: scale-color($white, $lightness: -8%),
     surface-2: scale-color($white, $lightness: -5%),
@@ -45,6 +47,7 @@ $themes: (
   dark: (
     logo: url("../images/gabriel-bajada-logo-white.png"),
     moose-logo: url("https://gabrielbajada-host1.com/host/credits/moose-mark-white.png"),
+    client-logo-color: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg) brightness(102%) contrast(102%),
     bg: $black, //linear-gradient($bg--dark--top, $bg--dark--bottom),
     surface-1: scale-color($black, $lightness: 5%),
     surface-2: scale-color($black, $lightness: 7%),

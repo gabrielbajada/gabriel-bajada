@@ -60,47 +60,46 @@ $wp_query = $wp_query = new WP_Query( $args );
         $embeds = get_media_embedded_in_content( $content );
 
         // Custom Fields
-        $lead = types_render_field("lead", array("output"=>"html"));
+        $lead = types_render_field("project-lead-paragraph", array("output"=>"html"));
         ?>
 
         <!--Item: -->
-        <article id="post-<?php the_ID(); ?>" <?php post_class('cell medium-10 xlarge-8 xxlarge-7 item moose-infinite-scroll-homepage-item'); ?> role="article">
+        <article id="post-<?php the_ID(); ?>" <?php post_class('cell small-11 medium-10 xlarge-8 xxlarge-7 item moose-infinite-scroll-homepage-item'); ?> role="article">
 
           <div class="card">
 
-          <div class="grid-x grix-padding-x align-center-middle item-inner">
+            <div class="grid-x grix-padding-x align-center-middle item-inner">
 
-          <div class="cell medium-6 card-image">
-            <a href="<?php the_permalink(); ?>" rel="bookmark">
-                <div class="featured-image-container" itemprop="articleBody">
+              <div class="cell medium-5 card-image">
+                <a href="<?php the_permalink(); ?>" rel="bookmark">
+                    <div class="featured-image-container" itemprop="articleBody">
 
-                    <div class="featured-image aspect-ratio" style="background-image: url('<?php echo $thumb_url; ?>');"> </div>
+                        <div class="featured-image aspect-ratio" style="background-image: url('<?php echo $thumb_url; ?>');"> </div>
 
-                </div>
-            </a>
-          </div>
+                    </div>
+                </a>
+              </div>
 
-            <div class="cell medium-6 card-section">
-              <?php //get_template_part( 'parts/project', 'client' ); ?>
-              <h3>
-                <span class="balance-text">
-                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </span>
-              </h3>
-
-              <?php if ( $lead != '' ) { ?>
-                <p class="lead">
+              <div class="cell medium-7 card-section">
+                <?php get_template_part( 'parts/project', 'client' ); ?><?php get_template_part( 'parts/project', 'agency' ); ?>
+                <h3>
                   <span class="balance-text">
-                    <?php echo wp_trim_words( $lead, 25, '…' ); ?>
+                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                   </span>
-                </p>
-              <?php } else {} ?>
+                </h3>
 
-              <a href="<?php the_permalink(); ?>" class="cta" target="_self">View Project</a>
+                <?php if ( $lead != '' ) { ?>
+                  <p class="lead">
+                    <span class="balance-text">
+                      <?php echo wp_trim_words( $lead, 15, '…' ); ?>
+                    </span>
+                  </p>
+                <?php } else {} ?>
+
+                <a href="<?php the_permalink(); ?>" class="cta" target="_self">View Project</a>
+              </div>
+
             </div>
-
-          </div>
-
 
           </div>
 

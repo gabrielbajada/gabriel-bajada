@@ -177,8 +177,8 @@ body {
   &:hover {
 
     i {
-      animation: bounce; /* referring directly to the animation's @keyframe declaration */
-      animation-duration: 1s; /* don't forget to set a duration! */
+      //animation: bounce; /* referring directly to the animation's @keyframe declaration */
+      //animation-duration: 1s; /* don't forget to set a duration! */
       @include transition-1;
 
       @include themed() {
@@ -225,11 +225,11 @@ body {
 }
 
 p {
-    @include header-styles(h5);
+  @include header-styles(h5);
 
-    @include themed() {
-      //font-weight: t($text-font-weight);
-    }
+  @include themed() {
+    font-weight: t($text-font-weight);
+  }
 }
 
 a {
@@ -322,16 +322,19 @@ a {
   display: block;
   font-family: $tertiary-font-family;
   font-weight: $global-weight-normal;
+  text-decoration: none;
   text-transform: uppercase;
-
   letter-spacing: 0.25rem;
-  text-indent: 0.25rem;
+  //text-indent: 0.25rem;
+  @include transition-2;
 
   @include themed() {
     color: t($text);
   }
 
-  @include transition-2;
+  @include breakpoint(xlarge) {
+    @include header-styles(h4);
+  }
 
   &:after, .material-symbols-sharp {
     padding-left: 1rem;
@@ -371,22 +374,21 @@ a {
   @include header-styles(h4);
 
   @include themed() {
-    color: t($text-font-weight);
+    font-weight: t($text-font-weight);
   }
 
   p {
     @include header-styles(h4);
 
     @include themed() {
-      color: t($text-font-weight);
+      font-weight: t($text-font-weight);
     }
   }
 }
 
 .section-title {
-    color: $primary-color !important;
-    font-family: $header-font-family !important;
-    font-weight: $global-weight-medium !important;
+    font-family: $tertiary-font-family;
+    font-weight: $global-weight-normal;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
 
@@ -394,21 +396,31 @@ a {
     @include header-styles(h5);
     @include transition-2;
 
+    @include themed() {
+      color: t($text-medium-emphasis);
+    }
+
     a {
-        color: $primary-color !important;
-        font-family: $header-font-family !important;
-        font-weight: $global-weight-medium !important;
-        text-transform: uppercase;
-        letter-spacing: 0.25rem;
+      font-family: $tertiary-font-family;
+      font-weight: $global-weight-normal;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
 
-        @include quarter-spaced-bottom;
-        @include header-styles(h5);
-        @include transition-2;
+      @include quarter-spaced-bottom;
+      @include header-styles(h5);
+      @include transition-2;
 
-        &:hover, &:active {
-            @include transition-1;
-            color: $secondary-color;
+      @include themed() {
+        color: t($text-medium-emphasis);
+      }
+
+      &:hover, &:active {
+        @include transition-1;
+
+        @include themed() {
+          color: t($primary-clr);
         }
+      }
     }
 }
 
@@ -696,20 +708,26 @@ a .featured-image {
 
   button, .button {
     height: 6rem;
-    color: $primary-color;
+      cursor: pointer;
     font-family: $tertiary-font-family;
     font-weight: $global-weight-light;
     line-height: 0.7;
     @include header-styles(h6);
     @include transition-2;
 
+    @include themed() {
+      color: t($text);
+    }
+
     .times {
       display: block;
-      color: $tertiary-color;
       font-weight: $global-weight-normal;
       font-size: 24px;
-      //@include header-styles(h2);
       @include transition-2;
+
+      @include themed() {
+        color: t($text);
+      }
 
       @include breakpoint(medium) {
         margin-bottom: (rem-calc(map-get($grid-column-gutter, small)) / 4 ) !important;
@@ -718,95 +736,164 @@ a .featured-image {
     }
 
     &:hover, &:active {
-      color: $primary-color-dark;
       cursor: pointer;
       @include transition-1;
 
+      @include themed() {
+        color: t($hover);
+      }
+
       .times {
         @include transition-1;
-        color: $tertiary-color-dark;
+
+        @include themed() {
+          color: t($hover);
+        }
       }
     }
   }
 }
+
 
 .modal-open .modal, .btn:focus, a:focus {
     outline:none;
 }
 
 .reveal {
-    color: $black;
-    background-color: $body-background;
     padding: 0;
     z-index: 11111111111;
     top: 0 !important;
     @include inner-spaced-bottom;
 
-    @include breakpoint(medium) {
-      top: 4vh !important;
+    @include themed() {
+      color: t($text);
+      background-color: t($surface-1);
     }
 
-    .reveal-title, h3, .h3 {
-        color: $primary-color;
-        font-family: $header-font-family;
-        font-weight: $global-weight-bold;
-        @include header-styles(h2);
-        @include half-spaced-top;
-        @include quarter-spaced-bottom;
+    @include breakpoint(medium) {
+      //top: 4vh !important;
+    }
+
+    .reveal-title {
+      color: $secondary-color;
+      font-family: $tertiary-font-family;
+      font-weight: $global-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      text-indent: 0.25rem;
+
+      width: fit-content;
+      padding: 0.25rem;
+      padding-bottom: 0.3rem;
+      line-height: $global-lineheight;
+
+      display: block;
+
+      @include header-styles(h5);
+      @include quarter-spaced-bottom;
+
+      @include themed() {
+        color: t($btn-hover-text);
+        background-color: t($primary-clr);
+      }
     }
 
     .section-title {
-        color: $primary-color;
-        @include half-spaced-bottom;
+      @include half-spaced-bottom;
 
-        a, a:link, a:visited {
-            color: $primary-color !important;
+      @include themed() {
+        color: t($text-medium-emphasis);
+      }
 
-            &:hover, &:active {
-                color: $black !important;
-            }
+      a, a:link, a:visited {
+
+        @include themed() {
+          color: t($text) !important;
         }
+
+        &:hover, &:active {
+
+          @include themed() {
+            color: t($hover) !important;
+          }
+        }
+      }
     }
 
     .lead, .wpcf-field-lead {
-        color: $black;
-        @include quarter-spaced-bottom;
+      @include quarter-spaced-bottom;
 
-        p {
-            color: $black;
+      @include themed() {
+        color: t($text);
+      }
 
-            a {
-                color: $black;
+      p {
 
-                &:hover, &:active {
-                    color: $secondary-color;
-                }
-            }
+        @include themed() {
+          color: t($text);
         }
+
+        a {
+
+          @include themed() {
+            color: t($text);
+          }
+
+          &:hover, &:active {
+
+            @include themed() {
+              color: t($primary-clr);
+            }
+          }
+        }
+      }
     }
 
     p {
 
-        a {
-            color: $tertiary-color;
+      a {
 
-            &:hover, &:active {
-                color: $secondary-color;
-            }
+        @include themed() {
+          color: t($text);
         }
+
+        &:hover, &:active {
+
+          @include themed() {
+            color: t($primary-clr);
+          }
+        }
+      }
     }
 
     .featured-image-container {
-        @include half-spaced-bottom;
-        @include aspect-ratio(64, 27);
+      @include aspect-ratio(64, 27);
 
-        @include breakpoint(medium) {
-            margin-bottom: 0;
+      @include breakpoint(medium) {
+          margin-bottom: 0;
+      }
+
+      &.client-logo {
+        @include aspect-ratio(4, 3);
+
+        .featured-image {
+
+          @include themed() {
+            filter: t($client-logo-color);
+          }
         }
+      }
+    }
+
+    a .client-logo .featured-image {
+
+      &:hover {
+        transform: none;
+      }
     }
 
     .callout {
-        background-color: transparent;
+      background-color: transparent;
     }
 }
 
@@ -909,11 +996,11 @@ HEADER STYLES – MAIN NAVIGATION
         }
 
         @include breakpoint(xlarge) {
-          right: rem-calc(map-get($grid-column-gutter, xlarge) * 2 );
+          right: rem-calc(map-get($grid-column-gutter, xlarge) );
         }
 
         @include breakpoint(xxlarge) {
-          right: rem-calc(map-get($grid-column-gutter, xxlarge) * 2 );
+          right: rem-calc(map-get($grid-column-gutter, xxlarge) );
         }
       }
     }
@@ -1532,7 +1619,7 @@ HEADER STYLES – MAIN NAVIGATION
                 }
 
                 @include breakpoint(large) {
-                padding: 1.25rem 0 !important;
+                  padding: 1.25rem 0 !important;
                 }
               }
 
@@ -2797,8 +2884,12 @@ HEADER STYLES - OFFCANVAS MENU
         ul {
 
           li {
-            display: inline-block;
-            margin-right: (rem-calc(map-get($grid-column-gutter, medium)) / 2);
+            margin-bottom: (rem-calc(map-get($grid-column-gutter, small)) / 2);
+
+            @include breakpoint(medium) {
+              display: inline-block;
+              margin-right: (rem-calc(map-get($grid-column-gutter, medium)) / 2);
+            }
 
             a {
               font-family: $tertiary-font-family;
@@ -2928,10 +3019,15 @@ FOOTER STYLES
 	clear: both;
 	margin-top: 0;
   //border-top: $border-thin solid;
+  @include third-inner-spaced-bottom;
 
     @include themed() {
       color: t($bg);
       border-top-color: t($text-medium-emphasis);
+    }
+
+    @include breakpoint(medium) {
+        padding-bottom: 0;
     }
 
     #footer-top {
@@ -3151,10 +3247,10 @@ FOOTER STYLES
               .widget {
 
                 ul {
+                  list-style: none;
                   text-align: left;
 
                   li {
-                    display: block;
                     margin-bottom: (rem-calc(map-get($grid-column-gutter, small)) / 2);
 
                     @include breakpoint(medium) {
@@ -3227,6 +3323,7 @@ FOOTER STYLES
             display: inline-block;
             font-family: $tertiary-font-family;
             line-height: $global-lineheight-short;
+            font-weight: $global-weight-normal;
             @include header-styles(h6);
 
             @include themed() {
@@ -3715,6 +3812,22 @@ BANNER STYLES
           @include breakpoint(medium) {
             @include header-styles(h2);
           }
+
+          @include breakpoint(xlarge) {
+          }
+
+          @include breakpoint(xxlarge) {
+            //@include header-styles(h1);
+            //font-size: rem-calc(51px * 1.333);
+            font-size: 67px;
+          }
+
+          i {
+
+            @include breakpoint(xxlarge) {
+              font-size: 48px !important;
+            }
+          }
         }
       }
     }
@@ -3725,10 +3838,41 @@ BANNER STYLES
 
 
 #banner-cpt {
+  @include half-viewport;
+
+  @include breakpoint(medium) {
+    @include secondary-banner-height;
+  }
+
+  .banner-background {
+    @include half-viewport;
+
+    @include breakpoint(medium) {
+      @include secondary-banner-height;
+    }
+
+    .banner-background-img {
+      @include half-viewport;
+
+      @include breakpoint(medium) {
+        @include secondary-banner-height;
+      }
+    }
+  }
 
   .banner-overlay {
+    @include half-viewport;
+
+    @include breakpoint(medium) {
+      @include secondary-banner-height;
+    }
 
     .banner-overlay-inner {
+      @include half-viewport;
+
+      @include breakpoint(medium) {
+        @include secondary-banner-height;
+      }
 
       .callout {
 
@@ -3740,11 +3884,36 @@ BANNER STYLES
           }
         }
 
-        h1 {
-          @include spaced-top;
 
-          @include breakpoint(medium) {
-            margin-top: 0;
+        h4 {
+          display: inline-block;
+          position: relative;
+
+          a {
+            font-family: $tertiary-font-family;
+            font-weight: $global-weight-normal;
+            text-decoration: none;
+
+            @include themed() {
+              color: t($text-medium-emphasis);
+            }
+
+            &:hover , &:active {
+
+              @include themed() {
+                color: t($primary-clr);
+              }
+            }
+          }
+        }
+
+        .ampersand {
+          font-family: $tertiary-font-family;
+          font-weight: $global-weight-normal;
+          @include header-styles(h4);
+
+          @include themed() {
+            color: t($text-medium-emphasis);
           }
         }
       }

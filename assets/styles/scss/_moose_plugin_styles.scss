@@ -586,7 +586,6 @@ CONTACT FORM 7 STYLES
     &.invalid .wpcf7-response-output,
     &.unaccepted .wpcf7-response-output {
       @include themed() {
-        color: t($bg);
         background-color: t($warning-clr);
       }
 
@@ -607,7 +606,7 @@ CONTACT FORM 7 STYLES
       //font-size: 0.8rem;
 
       @include themed() {
-        color: t($bg);
+        color: t($btn-hover-text);
         background-color: t($alert-clr);
       }
 

@@ -75,105 +75,45 @@
         <?php } ?>
 
             <div class="banner-overlay-inner grid-x grid-padding-x align-center align-bottom appear-load-3">
-                <div class="cell medium-8 xlarge-6 xxlarge-5">
+                <div class="cell small-11 large-10 xxlarge-7">
 
                     <div class="callout">
 
-                      <?php if ( $alternate_image != '' ) { ?>
+                        <div class="grid-x grid-padding-x align-left text-left">
 
-                        <div class="grid-x grid-padding-x align-center-middle">
+                            <div class="cell xlarge-10 xxlarge-8">
 
-                            <div class="cell small-8 medium-4">
+                              <h4><?php get_template_part( 'parts/project', 'client-link' ); ?></h4>
 
-                      				<?php if ( $url != '' ) { ?>
-                      				<a href="<?php echo $url; ?>" target="_blank">
-                      				<?php } else {} ?>
+                              <h1>
 
-                      					<div class="featured-image-container">
-                      						<div class="featured-image aspect-ratio" style="background-image: url('<?php echo $alternate_image; ?>');"> </div>
-                      					</div>
+                                <?php if ( $banner_title != '' ) { ?>
 
-                      				<?php if ( $url != '' ) { ?>
-                      				</a>
-                      				<?php } else {} ?>
-
-                            </div>
-
-                            <div class="cell small-11 medium-7 medium-offset-1 text-center medium-text-left">
-
-                               <h1>
-
-                                  <?php if ( $banner_title != '' ) { ?>
-
-                                    <?php if ( $image_url != '' ) { ?>
-                                      <span class="title"><?php the_title(); ?></span>
-                                    <?php } else { ?>
-                                      <span class="title light"><?php the_title(); ?></span>
-                                    <?php } ?>
-
-                                    <?php echo $banner_title; ?>
-
-                                  <?php } else { ?>
-
-                                    <?php the_title(); ?>
-
-                                  <?php } ?>
-
-                                  <?php if ( $banner_lead_paragraph != '' ) { ?>
-
-                                    <span class="lead">
-                                      <?php echo $banner_lead_paragraph; ?>
-                                      <?php //echo wp_trim_words( $banner_lead_paragraph, 35, '…' ); ?>
+                                    <span class="title"><?php the_title(); ?></span>
+                                    <span class="balance-text">
+                                      <?php echo $banner_title; ?>
                                     </span>
 
-                                  <?php } else {} ?>
+                                <?php } else { ?>
 
-                                </h1>
+                                  <?php the_title(); ?>
 
-                            </div>
+                                <?php } ?>
 
-                          </div>
+                                <?php if ( $banner_lead_paragraph != '' ) { ?>
 
-                        <?php } else { ?>
+                                  <span class="lead balance-text">
+                                    <?php echo $banner_lead_paragraph; ?>
+                                    <?php //echo wp_trim_words( $banner_lead_paragraph, 35, '…' ); ?>
+                                  </span>
 
-                          <div class="grid-x grid-padding-x align-center text-center">
+                                <?php } else {} ?>
 
-                            <div class="cell small-11 medium-12">
-
-                               <h1>
-
-                                   <?php if ( $banner_title != '' ) { ?>
-
-                                    <?php if ( $image_url != '' ) { ?>
-                                      <span class="title"><?php the_title(); ?></span>
-                                    <?php } else { ?>
-                                      <span class="title light"><?php the_title(); ?></span>
-                                    <?php } ?>
-
-                                    <?php echo $banner_title; ?>
-
-                                   <?php } else { ?>
-
-                                       <?php the_title(); ?>
-
-                                   <?php } ?>
-
-                                    <?php if ( $banner_lead_paragraph != '' ) { ?>
-
-                                        <span class="lead">
-                                            <?php echo $banner_lead_paragraph; ?>
-                                            <?php //echo wp_trim_words( $banner_lead_paragraph, 35, '…' ); ?>
-                                        </span>
-
-                                    <?php } else {} ?>
-
-                                </h1>
+                              </h1>
 
                             </div>
 
                          </div>
-
-                      <?php } ?>
 
                     </div>
 

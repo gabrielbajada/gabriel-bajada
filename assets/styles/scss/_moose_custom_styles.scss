@@ -5,6 +5,30 @@ GENERIC ITEM STYLES
 #generic-projects-grid {
   //@include double-inner-spaced;
 
+  h5 {
+    font-family: $tertiary-font-family;
+    font-weight: $global-weight-normal;
+
+    @include themed() {
+      color: t($text-medium-emphasis);
+    }
+
+    a {
+      text-decoration: none;
+
+      @include themed() {
+        color: t($text-medium-emphasis);
+      }
+
+      &:hover, &:active {
+
+        @include themed() {
+          color: t($primary-clr);
+        }
+      }
+    }
+  }
+
   article {
     @include double-spaced;
     animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
@@ -12,9 +36,23 @@ GENERIC ITEM STYLES
 
     .card {
       padding: 0;
+      @include transition-2;
 
       @include themed() {
         background-color: t($surface-1);
+      }
+
+      &:hover, &:active {
+        @include transition-1;
+
+        .card-image {
+
+          .featured-image {
+            @include transition-1;
+            transform: scale(1.025);
+            transition: transform 1500ms ease, opacity 1500ms ease;
+          }
+        }
       }
 
       .card-image {
@@ -25,12 +63,19 @@ GENERIC ITEM STYLES
 
         .featured-image-container {
           @include aspect-ratio(4, 3);
+
+          .featured-image {
+            @include transition-2;
+            transition: transform 1500ms ease 300ms, opacity 1500ms ease 300ms;
+          }
         }
 
       }
 
       .card-section {
         padding: rem-calc(map-get($grid-column-gutter, small) );
+        padding-left: 0;
+        padding-right: 0;
 
         @include themed() {
           background-color: t($surface-1);
@@ -52,9 +97,9 @@ GENERIC ITEM STYLES
           @include quarter-spaced-bottom;
 
           a {
-            font-weight: $global-weight-medium;
+            font-weight: $global-weight-normal;
             text-decoration: none;
-            @include balance-text;
+            @include header-styles(h2);
 
             @include themed() {
               color: t($text);
@@ -63,14 +108,38 @@ GENERIC ITEM STYLES
             &:hover, &:active {
 
               @include themed() {
-                color: t($text-medium-emphasis);
+                //color: t($text-medium-emphasis);
               }
             }
           }
         }
 
+        h4 {
+          display: inline-block;
+          font-family: $tertiary-font-family;
+          font-weight: $global-weight-normal;
+
+          @include themed() {
+            color: t($text-medium-emphasis);
+          }
+        }
+
+        .ampersand {
+          font-family: $tertiary-font-family;
+          font-weight: $global-weight-normal;
+          @include header-styles(h4);
+
+          @include themed() {
+            color: t($text-medium-emphasis);
+          }
+        }
+
         p {
           @include quarter-spaced-bottom;
+
+          @include themed() {
+            color: t($text);
+          }
         }
 
         .cta {
@@ -88,6 +157,121 @@ GENERIC ITEM STYLES
   .page-load-status {
   }
 
+}
+
+
+
+
+/*********************
+TESTIMONIAL SECTION STYLES
+*********************/
+
+
+#testimonials, #client-testimonials {
+  @include inner-spaced;
+
+  .lead p {
+    @include header-styles(h4);
+
+    @include breakpoint(medium) {
+      @include header-styles(h3);
+    }
+  }
+
+  h3, .h3 {
+    margin-bottom: 0;
+
+    a {
+      font-weight: $global-weight-normal;
+      line-height: $global-lineheight;
+      text-decoration: none;
+      @include header-styles(h4);
+
+      @include themed() {
+        color: t($text);
+      }
+
+      &:hover, &:active {
+
+        @include themed() {
+          color: t($primary-clr);
+        }
+      }
+    }
+  }
+
+  h4, .h4 {
+    //display: inline-block;
+    //float: left;
+    @include header-styles(h5);
+
+    a {
+      font-weight: $global-weight-medium;
+
+      @include themed() {
+        color: t($text);
+      }
+
+      &:hover, &:active {
+
+        @include themed() {
+          color: t($primary-clr);
+        }
+      }
+    }
+
+    &.section-title {
+      float: none;
+    }
+  }
+
+  h5, .designation {
+    font-family: $tertiary-font-family;
+    font-weight: $global-weight-normal;
+
+    @include themed() {
+      color: t($text-medium-emphasis);
+    }
+
+    a {
+      text-decoration: none;
+
+      @include themed() {
+        color: t($text-medium-emphasis);
+      }
+
+      &:hover, &:active {
+
+        @include themed() {
+          color: t($primary-clr);
+        }
+      }
+    }
+  }
+
+
+  .owl-dot {
+
+    span {
+      background: $white;
+      border-color: $white;
+    }
+
+    &.active {
+
+      span {
+        border-color: $primary-color;
+      }
+    }
+
+    &:hover {
+
+      span {
+        background: $tertiary-color !important;
+        border-color: $tertiary-color;
+      }
+    }
+  }
 }
 
 
@@ -379,6 +563,217 @@ FULL-WIDTH PAGE STYLES
               color: $secondary-color;
           }
         }
+      }
+    }
+  }
+}
+
+
+
+
+/*********************
+SINGLE PROJECT STYLES
+*********************/
+
+.single-project {
+
+  #single-project-content {
+    @include inner-spaced-bottom;
+
+    article {
+
+      header {
+
+        #project-info {
+
+          .lead {
+            @include half-spaced-bottom;
+          }
+
+          .details p {
+            @include half-spaced-bottom;
+
+            &:last-of-type {
+
+              @include breakpoint(medium) {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          .other-credits {
+            @include half-spaced-bottom;
+
+            h4, h5, p {
+              font-family: $tertiary-font-family;
+              font-weight: $global-weight-normal;
+              @include header-styles(h5);
+            }
+          }
+
+          .url {
+            @include half-spaced-bottom;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        #project-details {
+          border-bottom: $border-thin solid;
+          @include spaced-bottom;
+          @include half-inner-spaced;
+
+          @include themed() {
+            color: t($text-medium-emphasis);
+            border-color: t($text-medium-emphasis);
+          }
+
+          @include breakpoint(medium) {
+            @include half-spaced-top;
+          }
+
+          .detail {
+            font-family: $tertiary-font-family;
+            font-weight: $global-weight-normal;
+            @include header-styles(h5);
+
+            @include breakpoint(medium) {
+              @include header-styles(h4);
+            }
+
+            a {
+              text-decoration: none;
+
+              @include themed() {
+                color: t($text-medium-emphasis);
+              }
+
+              &:hover, &:active {
+
+                @include themed() {
+                  color: t($primary-clr);
+                }
+              }
+            }
+          }
+
+          .abbreviation {
+            display: block;
+            @include header-styles(h6);
+
+            @include breakpoint(medium) {
+              margin-right: rem-calc(map-get($grid-column-gutter, medium));
+              display: inline-block;
+              @include header-styles(h5);
+            }
+          }
+        }
+      }
+
+      #project-content {
+
+        .section-title {
+          @include spaced-top;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+
+        img, .widescreen, .fb-video {
+          margin-bottom: rem-calc(map-get($grid-column-gutter, small));
+
+          @include breakpoint(medium) {
+            margin-bottom: rem-calc(map-get($grid-column-gutter, medium));
+          }
+
+          @include breakpoint(xlarge) {
+            margin-bottom: rem-calc(map-get($grid-column-gutter, xlarge));
+          }
+
+          @include breakpoint(xxlarge) {
+            margin-bottom: rem-calc(map-get($grid-column-gutter, xxlarge));
+          }
+
+          &.frame {
+            border: $border-thin solid $secondary-color-light !important;
+          }
+        }
+
+
+        .no-space {
+
+          @include breakpoint(medium) {
+              margin-bottom: 0 !important;
+          }
+        }
+
+        .no-space-top {
+          margin-top: 0 !important;
+        }
+
+        .cell {
+          margin-bottom: 0;
+
+          .section-title {
+            @include spaced-top;
+          }
+
+          img {
+
+            &.no-space {
+
+              @include breakpoint(medium) {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          &:last-of-type {
+
+            img {
+
+              &.no-space {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+
+        .owl-dot {
+
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+
+      #testimonials {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .reveal {
+
+    #client-testimonials {
+      padding-bottom: 0;
+
+      .lead p {
+        @include header-styles(h5);
+
+        @include breakpoint(medium) {
+          @include header-styles(h4);
+        }
+      }
+    }
+
+    #generic-projects-grid {
+
+      article {
+        margin: 0;
       }
     }
   }
