@@ -897,6 +897,25 @@ a .featured-image {
     }
 }
 
+  .tooltip {
+    font-family: $tertiary-font-family;
+    text-align: right;
+    max-width: 15rem;
+
+    @include themed() {
+      color: t($text);
+      border-color: t($surface-2);
+      background-color: t($surface-2);
+    }
+
+    &:before {
+
+      @include themed() {
+        border-color: transparent transparent t($surface-2) !important;
+      }
+    }
+  }
+
 
 
 
@@ -1001,6 +1020,12 @@ HEADER STYLES – MAIN NAVIGATION
 
         @include breakpoint(xxlarge) {
           right: rem-calc(map-get($grid-column-gutter, xxlarge) );
+        }
+
+        .has-tip {
+          cursor: pointer;
+          border-bottom: none;
+          display: block;
         }
       }
     }

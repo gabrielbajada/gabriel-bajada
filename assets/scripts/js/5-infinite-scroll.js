@@ -21,6 +21,8 @@ jQuery(document).ready(function() {
 
   $container.on( 'append.infiniteScroll', function( event, response, path ) {
     link.href = path;
+    balanceText();
+    console.log('balance text');
     ga( 'set', 'page', link.pathname );
     ga( 'send', 'pageview' );
   });
@@ -51,6 +53,8 @@ jQuery(document).ready(function() {
 
   $container.on( 'append.infiniteScroll', function( event, response, path ) {
     link.href = path;
+    balanceText();
+    console.log('balance text');
     ga( 'set', 'page', link.pathname );
     ga( 'send', 'pageview' );
   });

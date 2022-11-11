@@ -78,7 +78,7 @@
 					<div class="grid-x grid-padding-x">
 
 						<div class="cell small-4">
-							<h5 class="detail"><span class="abbreviation">Date</span><?php the_time( 'F, Y' ); ?></h5>
+							<h5 class="detail"><span class="abbreviation">Date</span><?php the_time( 'Y' ); ?></h5>
 						</div>
 
 						<div class="cell small-4">

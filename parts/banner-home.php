@@ -98,9 +98,9 @@
 
                     <div class="callout">
 
-                        <div class="grid-x grid-padding-x align-left text-left">
+                        <div class="grid-x grid-padding-x align-left align-bottom text-left">
 
-                            <div class="cell">
+                            <div class="cell medium-11">
 
                               <h1>
 
@@ -121,6 +121,10 @@
 
                               </h1>
 
+                            </div>
+
+                            <div class="cell medium-1 text-right">
+                              <a id="scroll-down-container" title="Scroll down"><i class="material-symbols-sharp">expand_more</i></a>
                             </div>
 
                             <?php if ( ($banner_button_title != '') && ($banner_secondary_button_title != '') ) { ?>
@@ -163,12 +167,6 @@
 
                 </div>
             </div>
-
-            <!-- div class="banner-overlay-inner-bottom grid-x align-center-middle appear-load-3">
-              <div class="cell text-center">
-                <a id="scroll-down-container" title="Scroll down"><i class="material-symbols-sharp">expand_more</i></a>
-              </div>
-            </div -->
 
         </div>
 

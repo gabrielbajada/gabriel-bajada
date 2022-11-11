@@ -39,82 +39,63 @@
         $thumb_url = $thumb_url_array[0];
 
         $url = types_render_field("url", array("output"=>"raw", "post_id"=>$agency_id));
-        $agency_standfirst = types_render_field("agency-standfirst", array("output"=>"html", "post_id"=>$agency_id));
+        $agency_lead = types_render_field("agency-lead-paragraph", array("output"=>"html", "post_id"=>$agency_id));
+        $agency_content = types_render_field("agency-content", array("output"=>"html", "post_id"=>$agency_id));
     ?>
 
 
     <section class="full reveal" id="<?php echo $post_slug; ?>" data-reveal data-close-on-click="true" data-v-offset="0" data-deep-link="true" data-update-history="true" data-animation-in="fade-in" data-animation-out="fade-out">
 
-        <div class="grid-container">
+      <div class="grid-container">
 
-            <div class="grid-x grid-padding-x align-center-middle close-button">
-                <div class="cell medium-12 text-right">
-                    <button data-close aria-label="Close reveal" type="button">
-                        <span aria-hidden="true" class="times">&times;</span><span class="show-for-medium">ESC</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="grid-x grid-padding-x">
-
-                <div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2">
-
-                    <div class="grid-x grid-margin-x">
-
-                        <?php if ( has_post_thumbnail() ) { ?>
-
-                        <header class="cell small-8 small-offset-2 show-for-small-only">
-
-                            <a href="<?php echo $url; ?>" target="_blank" class="">
-
-                                <div class="featured-image-container">
-
-                                    <div class="featured-image aspect-ratio" style="background-image: url('<?php echo $thumb_url; ?>');"> </div>
-
-                                </div>
-
-                            </a>
-
-                        </header>
-
-                        <?php } else {} ?>
-
-                        <div class="cell small-8 small-offset-2 medium-4 medium-offset-0">
-
-                            <?php if ( has_post_thumbnail() ) { ?>
-
-                            <a href="<?php echo $url; ?>" title="<?php echo $agency_title; ?>'s Website" target="_blank" class="show-for-medium">
-
-                                <div class="featured-image-container">
-
-                                    <div class="featured-image aspect-ratio" style="background-image: url('<?php echo $thumb_url; ?>');"> </div>
-
-                                </div>
-
-                            </a>
-
-                            <?php } else {} ?>
-
-                        </div>
-
-                        <div class="cell medium-7 medium-offset-1">
-
-                            <h3 class="reveal-title"><?php echo $agency_title; ?></h3>
-
-                            <div class="standfirst"><?php echo $agency_standfirst; ?></div>
-
-                            <?php echo $content; ?>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="grid-x grid-padding-x align-center-middle">
+          <div class="cell text-right close-button">
+            <button data-close aria-label="Close reveal" type="button">
+              <i class="material-symbols-sharp times">close</i><span class="show-for-large">ESC</span>
+            </button>
+          </div>
         </div>
 
+        <div class="grid-x grid-padding-x align-center">
+          <div class="cell small-11 large-10 xxlarge-7">
+
+            <div class="grid-x grid-padding-x align-left text-left">
+
+              <div class="cell medium-7 small-order-2 medium-order-1">
+                <h3 class="reveal-title"><?php echo $agency_title; ?></h3>
+
+                <?php if ( $agency_lead != '' ) { ?>
+                  <div class="lead">
+                    <span class="balance-text">
+                      <?php echo $agency_lead; ?>
+                    </span>
+                  </div>
+                <?php } else {} ?>
+
+                <?php if ( $agency_content != '' ) { ?>
+                  <span class="balance-text">
+                    <?php echo $agency_content; ?>
+                  </span>
+                <?php } else {} ?>
+              </div>
+
+              <div class="cell medium-4 medium-offset-1 small-order-1 medium-order-2">
+                <?php if ( has_post_thumbnail() ) { ?>
+                <a href="<?php echo $url; ?>" title="<?php echo $agency_title; ?>'s Website" target="_blank">
+                  <div class="featured-image-container client-logo">
+                    <div class="featured-image aspect-ratio" style="background-image: url('<?php echo $thumb_url; ?>');"> </div>
+                  </div>
+                </a>
+                <?php } else {} ?>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        
+      </div>
     </section>
 
 
