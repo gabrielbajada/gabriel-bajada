@@ -9,35 +9,38 @@ Template Post Type: page
 
 	<div id="content">
 
-        <?php get_template_part( 'parts/banner', 'page' ); ?>
+    <?php get_template_part( 'parts/banner', 'page' ); ?>
 
-        <div id="inner-content">
+    <div id="inner-content">
 
-            <section id="about-container" class="grid-container full inner-spaced appear-load-3">
+      <section id="about-container" class="grid-container full inner-spaced appear-load-3">
 
-                <div class="grid-x grid-padding-x align-center">
+        <div class="grid-x grid-padding-x align-center">
 
-                    <div class="cell small-11 large-8 xxlarge-7">
+          <div class="cell small-11 large-10 xlarge-8">
 
-                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                        <div id="about-content" class="grid-x grid-padding-x align-center">
+            <div id="about-content" class="grid-x grid-padding-x align-center">
 
-                            <?php get_template_part( 'parts/about', 'bio' ); ?>
+              <?php get_template_part( 'parts/about', 'bio' ); ?>
 
-                            <?php get_template_part( 'parts/about', 'details' ); ?>
+							<div id="about-details" class="cell medium-4 medium-offset-1">
+                <?php get_template_part( 'parts/about', 'experience' ); ?>
+                <?php get_template_part( 'parts/about', 'education' ); ?>
+							</div>
 
-                        </div>
+            </div>
 
-                        <?php endwhile; endif; ?>
+            <?php endwhile; endif; ?>
 
-                    </div>
+          </div>
 
-                </div>
+        </div>
 
-            </section>
+      </section>
 
-        </div> <!-- end #inner-content -->
+    </div> <!-- end #inner-content -->
 
 	</div> <!-- end #content -->
 

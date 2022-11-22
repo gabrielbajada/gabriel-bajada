@@ -69,7 +69,7 @@
         <?php } ?>
 
             <div class="banner-overlay-inner grid-x grid-padding-x align-center align-bottom appear-load-3">
-                <div class="cell small-11 large-10 xlarge-8">
+                <div class="cell small-11 large-8 xxlarge-7">
 
                     <div class="callout">
 

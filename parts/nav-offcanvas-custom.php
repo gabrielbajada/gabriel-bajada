@@ -26,11 +26,11 @@
 
             <li>
               <button id="theme-toggle" class="btn-toggle">
-                <span data-tooltip data-click-open="false" tabindex="2" data-position="bottom" data-alignment="right" title="It takes strength to resist the dark side">
+                <span data-tooltip data-click-open="false" tabindex="2" data-position="left" data-alignment="center" title="It takes strength to resist the dark side">
                   <i class="material-symbols-sharp btn-toggle-light" >brightness_7</i>
                 </span>
-                <span data-tooltip data-click-open="false" tabindex="2" data-position="bottom" data-alignment="right" title="Come, join the dark side">
-                  <i class="material-symbols-sharp btn-toggle-dark" title="Come, join the dark side">brightness_4</i>
+                <span data-tooltip data-click-open="false" tabindex="2" data-position="left" data-alignment="center" title="Come, join the dark side">
+                  <i class="material-symbols-sharp btn-toggle-dark">brightness_4</i>
                 </span>
               </button>
             </li>

@@ -9,7 +9,7 @@ Template Post Type: page
 
 	<div id="content">
 
-        <?php get_template_part( 'parts/banner', 'page' ); ?>
+        <?php get_template_part( 'parts/banner', 'contact' ); ?>
 
         <div id="inner-content">
 

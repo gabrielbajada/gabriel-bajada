@@ -428,8 +428,35 @@ ABOUT PAGE STYLES
 
     #about-details {
 
-      @include themed() {
-        color: t($text);
+      #about-education {
+
+        .section-title {
+          @include half-spaced-top;
+        }
+      }
+
+      article {
+        @include quarter-spaced-bottom;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        h4, h5 {
+          font-weight: $global-weight-normal;
+
+          @include themed() {
+            color: t($text);
+          }
+        }
+
+        h4 {
+          @include header-styles(h5);
+        }
+
+        h5 {
+          font-family: $tertiary-font-family;
+        }
       }
     }
   }

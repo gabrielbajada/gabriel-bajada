@@ -911,7 +911,7 @@ a .featured-image {
     &:before {
 
       @include themed() {
-        border-color: transparent transparent t($surface-2) !important;
+        border-color: transparent transparent transparent t($surface-2) !important;
       }
     }
   }
